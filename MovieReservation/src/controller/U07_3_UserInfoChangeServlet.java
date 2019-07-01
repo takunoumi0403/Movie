@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/userInfoChangeComplete")
+@WebServlet("/userInfoChange")
 public class U07_3_UserInfoChangeServlet extends HttpServlet {
 
 	@Override
