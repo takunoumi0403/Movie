@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ReservationDao extends DaoBase {
+public class TheaterDao extends DaoBase {
 
 	//SQL実行するためのインタフェースを生成
 	PreparedStatement stmt = null;
