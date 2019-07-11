@@ -10,7 +10,7 @@ import beans.UserMovieListBeans;
 
 public class UserMovieListDao extends DaoBase{
 
-	public List<UserMovieListBeans> getMovieList(String date) throws SQLException{
+	public List<UserMovieListBeans> getMovieList(String sdf1, String sdf2, String sdf3) throws SQLException{
 		List<UserMovieListBeans> list = new ArrayList<UserMovieListBeans>();
 
 		PreparedStatement stmt = null;
@@ -20,14 +20,16 @@ public class UserMovieListDao extends DaoBase{
 
 			///////////////////////////////////
 			//SELECT文の発行
-			stmt = con.prepareStatement("SELECT movie_code, movie_name, movie_time, movie_address,"
-					+ "movie_thumbnail, movie_description, show_code,theater_code, seat_space"
-					+ "FROM show"
-					+ "INNER JOIN movie ON show.movie_code = movie.movie_code"
-					+ "INNER JOIN theater ON show.theater_code = theater.theater_code"
-					+ "WHERE show.show_date = ?;");
+			stmt = con.prepareStatement("SELECT m.movie_code, movie_name, movie_time, movie_adress, "
+					+ "movie_thumbnail, movie_description, s.show_code, t.theater_code, seat_space "
+					+ "FROM shows s "
+					+ "INNER JOIN movie m ON s.movie_code=m.movie_code "
+					+ "INNER JOIN theater t ON s.theater_code=t.theater_code "
+					+ "WHERE s.show_date BETWEEN ? AND ? "
+					+ "ORDER BY m.movie_time, m.movie_code, t.theater_code");
 
-			stmt.setString(1, date);
+			stmt.setString(1, sdf1);
+			stmt.setString(2, sdf3);
 			rs = stmt.executeQuery();
 
 			/////////////////////////////////////
