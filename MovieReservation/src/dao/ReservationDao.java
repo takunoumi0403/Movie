@@ -16,4 +16,5 @@ public class ReservationDao extends DaoBase {
 	//Select分実行後のデータを取得するインタフェースを生成
 	ResultSet rs = null;
 
+
 }

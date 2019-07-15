@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<%/*
+<%
 	//座席の最大値を受け取る
 	int maxSeatSpace = (int)request.getAttribute("maxSeatSpace");
 
@@ -22,20 +22,6 @@
 	for(int reservedSeatNum : reservedSeatList){
 		//空席を予約席に変更する。
 		seat[reservedSeatNum] = 1;
-	} */
-
-	int maxSeatSpace = 62;
-
-	int seat[] = new int[maxSeatSpace];
-	for(int i = 0; i < seat.length; i++){
-		seat[i] = 0;
-	}
-
-	int reservedSeat[] = {15,20,25,30,35};
-
-	for(int a : reservedSeat){
-		//空席を予約席に変更する。
-		seat[a] = 1;
 	}
 %>
 

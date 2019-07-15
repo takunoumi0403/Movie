@@ -85,7 +85,9 @@ create table shows(
 	FOREIGN KEY (`theater_code`) REFERENCES `theater`(`theater_code`)
 );
 
-INSERT INTO `shows`(`show_code`,`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(1,1,'2019/06/01 00:00:00',1,325);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(1,'2019/06/01 00:00:00',1,325);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(1,'2019/06/01 00:00:00',2,325);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(1,'2019/06/01 00:00:00',3,325);
 
 -- 予約テーブルの作成
 create table reservation(
@@ -98,6 +100,8 @@ create table reservation(
 );
 
 INSERT INTO `reservation`(`user_code`,`show_code`) VALUES(1,1);
+INSERT INTO `reservation`(`user_code`,`show_code`) VALUES(1,2);
+INSERT INTO `reservation`(`user_code`,`show_code`) VALUES(1,3);
 
 -- 予約詳細のテーブル作成
 create table reservation_details(
@@ -111,6 +115,20 @@ create table reservation_details(
 );
 
 INSERT INTO `reservation_details`(`reservation_code`,`detail_number`,`seat_number`,`fee_code`) VALUES(1,1,5,1);
+INSERT INTO `reservation_details`(`reservation_code`,`detail_number`,`seat_number`,`fee_code`) VALUES(1,2,6,1);
+INSERT INTO `reservation_details`(`reservation_code`,`detail_number`,`seat_number`,`fee_code`) VALUES(1,3,8,1);
+INSERT INTO `reservation_details`(`reservation_code`,`detail_number`,`seat_number`,`fee_code`) VALUES(1,4,12,1);
+INSERT INTO `reservation_details`(`reservation_code`,`detail_number`,`seat_number`,`fee_code`) VALUES(1,5,33,1);
+INSERT INTO `reservation_details`(`reservation_code`,`detail_number`,`seat_number`,`fee_code`) VALUES(2,1,5,1);
+INSERT INTO `reservation_details`(`reservation_code`,`detail_number`,`seat_number`,`fee_code`) VALUES(2,2,6,1);
+INSERT INTO `reservation_details`(`reservation_code`,`detail_number`,`seat_number`,`fee_code`) VALUES(2,3,8,1);
+INSERT INTO `reservation_details`(`reservation_code`,`detail_number`,`seat_number`,`fee_code`) VALUES(2,4,12,1);
+INSERT INTO `reservation_details`(`reservation_code`,`detail_number`,`seat_number`,`fee_code`) VALUES(2,5,33,1);
+INSERT INTO `reservation_details`(`reservation_code`,`detail_number`,`seat_number`,`fee_code`) VALUES(3,1,5,1);
+INSERT INTO `reservation_details`(`reservation_code`,`detail_number`,`seat_number`,`fee_code`) VALUES(3,2,6,1);
+INSERT INTO `reservation_details`(`reservation_code`,`detail_number`,`seat_number`,`fee_code`) VALUES(3,3,8,1);
+INSERT INTO `reservation_details`(`reservation_code`,`detail_number`,`seat_number`,`fee_code`) VALUES(3,4,12,1);
+INSERT INTO `reservation_details`(`reservation_code`,`detail_number`,`seat_number`,`fee_code`) VALUES(3,5,33,1);
 
 -- 管理者テーブルの作成
 create table admin(
