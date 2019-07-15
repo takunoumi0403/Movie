@@ -86,8 +86,10 @@ create table shows(
 );
 
 INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(1,'2019/06/01 00:00:00',1,325);
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(1,'2019/06/01 00:00:00',2,325);
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(1,'2019/06/01 00:00:00',3,325);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(1,'2019/06/01 00:00:00',2,162);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(1,'2019/07/15 00:00:00',3,224);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(1,'2019/07/15 00:01:00',1,325);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(1,'2019/07/15 00:02:00',2,162);
 
 -- 予約テーブルの作成
 create table reservation(
@@ -102,6 +104,8 @@ create table reservation(
 INSERT INTO `reservation`(`user_code`,`show_code`) VALUES(1,1);
 INSERT INTO `reservation`(`user_code`,`show_code`) VALUES(1,2);
 INSERT INTO `reservation`(`user_code`,`show_code`) VALUES(1,3);
+INSERT INTO `reservation`(`user_code`,`show_code`) VALUES(1,4);
+INSERT INTO `reservation`(`user_code`,`show_code`) VALUES(1,5);
 
 -- 予約詳細のテーブル作成
 create table reservation_details(
