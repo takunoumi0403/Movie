@@ -14,7 +14,7 @@ public class M01_LoginStartServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/mastersLogin.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/m01_loginStart.jsp");
 		dispatcher.forward(request, response);
 	}
 

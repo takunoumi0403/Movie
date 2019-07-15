@@ -14,14 +14,14 @@
 	<form action="movieResavation" method="GET">
 		<table>
 <%		if( list != null){
-			for(UserMovieListBeans listBeans : list){
-%>
+			for(UserMovieListBeans listBeans : list){%>
+
 				<tr>
-					<td><a href="movieResavation?showCode=listBeans.getMovieName()"><%listBeans.getMovieName();%></a></td>
+					<td><a href="movieResavation?showCode=<%=listBeans.getShowCode() %>"><%=listBeans.getMovieName()%></a></td>
+					<td><%=listBeans.getTheaterCode() %></td>
 				</tr>
 <%			}
-		}
-%>
+		}%>
 		</table>
 	</form>
 

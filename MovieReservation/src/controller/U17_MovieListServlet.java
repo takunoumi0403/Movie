@@ -32,14 +32,6 @@ public class U17_MovieListServlet extends HttpServlet {
 
 		request.setAttribute("list", list);
 
-		try {
-			list = userMovieModel.getMovieList();
-		} catch (Exception e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}
-
-
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/u17_movieList.jsp");
 		dispatcher.forward(request, response);

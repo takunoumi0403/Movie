@@ -10,7 +10,7 @@ import beans.UserMovieListBeans;
 
 public class UserMovieListDao extends DaoBase{
 
-	public List<UserMovieListBeans> getMovieList(String sdf1, String sdf2, String sdf3) throws SQLException{
+	public List<UserMovieListBeans> getMovieList(String today, String aTommorow) throws SQLException{
 		List<UserMovieListBeans> list = new ArrayList<UserMovieListBeans>();
 
 		PreparedStatement stmt = null;
@@ -21,15 +21,15 @@ public class UserMovieListDao extends DaoBase{
 			///////////////////////////////////
 			//SELECT文の発行
 			stmt = con.prepareStatement("SELECT m.movie_code, movie_name, movie_time, movie_adress, "
-					+ "movie_thumbnail, movie_description, s.show_code, t.theater_code, seat_space "
+					+ "movie_thumbnail, movie_description, s.show_code, show_date, t.theater_code, seat_space "
 					+ "FROM shows s "
 					+ "INNER JOIN movie m ON s.movie_code=m.movie_code "
 					+ "INNER JOIN theater t ON s.theater_code=t.theater_code "
 					+ "WHERE s.show_date BETWEEN ? AND ? "
 					+ "ORDER BY m.movie_time, m.movie_code, t.theater_code");
 
-			stmt.setString(1, sdf1);
-			stmt.setString(2, sdf3);
+			stmt.setString(1, today);
+			stmt.setString(2, aTommorow);
 			rs = stmt.executeQuery();
 
 			/////////////////////////////////////
@@ -42,10 +42,11 @@ public class UserMovieListDao extends DaoBase{
 				userMovieListBeans.setMovieCode(rs.getString("movie_code"));
 				userMovieListBeans.setMovieName(rs.getString("movie_name"));
 				userMovieListBeans.setMovieTime(rs.getString("movie_time"));
-				userMovieListBeans.setMovieAddress(rs.getString("movie_address"));
+				userMovieListBeans.setMovieAddress(rs.getString("movie_adress"));
 				userMovieListBeans.setMovieThumbnail(rs.getString("movie_thumbnail"));
 				userMovieListBeans.setMovieDescription(rs.getString("movie_description"));
 				userMovieListBeans.setShowCode(rs.getString("show_code"));
+				userMovieListBeans.setShowDate("show_date");
 				userMovieListBeans.setTheaterCode(rs.getString("theater_code"));
 
 				list.add(userMovieListBeans);
