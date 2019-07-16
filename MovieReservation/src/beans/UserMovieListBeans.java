@@ -11,6 +11,7 @@ public class UserMovieListBeans implements Serializable {
 	private String movieDescription;
 	private String showCode;
 	private String showDate;
+	private String showTime;
 	private String theaterCode;
 	private String seatSpace;
 
@@ -62,6 +63,13 @@ public class UserMovieListBeans implements Serializable {
 	}
 	public void setShowDate(String showDate) {
 		this.showDate = showDate;
+	}
+
+	public String getShowTime() {
+		return showTime;
+	}
+	public void setShowTime(String showTime) {
+		this.showTime = showTime;
 	}
 	public String getTheaterCode() {
 		return theaterCode;
