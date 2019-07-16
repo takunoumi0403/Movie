@@ -22,15 +22,15 @@ public class U17_MovieListServlet extends HttpServlet {
 
 
 		UserMovieListModel userMovieModel = new UserMovieListModel();
-		List<UserMovieListBeans> list = null;
+		List<List<UserMovieListBeans>> oList = null;
 		try {
-			list = userMovieModel.getMovieList();
+			oList = userMovieModel.getMovieList();
 		} catch (Exception e1) {
 			// TODO 自動生成された catch ブロック
 			e1.printStackTrace();
 		}
 
-		request.setAttribute("list", list);
+		request.setAttribute("oList", oList);
 
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/u17_movieList.jsp");
