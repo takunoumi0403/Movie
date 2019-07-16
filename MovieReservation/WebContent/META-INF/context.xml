@@ -10,7 +10,7 @@
 		username="root"
 			password=""
 			driverClassName="com.mysql.cj.jdbc.Driver"
-			url="jdbc:mysql://localhost:3306/moviereservationsystem?useSSL=false"
+			url="jdbc:mysql://localhost:3306/MovieReservationSystem?useSSL=false"
 			validationQuery="SELECT 0"
 	/>
 </Context>

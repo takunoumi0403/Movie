@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/userMyPage")
+@WebServlet("/myPage")
 public class U06_MyPageServlet extends HttpServlet {
 
 	@Override

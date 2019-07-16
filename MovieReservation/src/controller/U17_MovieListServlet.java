@@ -20,7 +20,6 @@ public class U17_MovieListServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
 		UserMovieListModel userMovieModel = new UserMovieListModel();
 		List<UserMovieListBeans> list = null;
 		try {
