@@ -17,7 +17,7 @@
 			for(UserMovieListBeans listBeans : list){%>
 
 				<tr>
-					<td><a href="movieResavation?showCode=<%=listBeans.getShowCode() %>"><%=listBeans.getMovieName()%></a></td>
+					<td><a href="movieResavation?showCode=<%=listBeans.getShowCode() %>"><%=listBeans.getMovieName()%>　<%=listBeans.getShowDate() %></a></td>
 					<td><%=listBeans.getTheaterCode() %></td>
 				</tr>
 <%			}

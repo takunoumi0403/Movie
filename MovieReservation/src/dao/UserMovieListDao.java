@@ -46,7 +46,7 @@ public class UserMovieListDao extends DaoBase{
 				userMovieListBeans.setMovieThumbnail(rs.getString("movie_thumbnail"));
 				userMovieListBeans.setMovieDescription(rs.getString("movie_description"));
 				userMovieListBeans.setShowCode(rs.getString("show_code"));
-				userMovieListBeans.setShowDate("show_date");
+				userMovieListBeans.setShowDate(rs.getString("show_date"));
 				userMovieListBeans.setTheaterCode(rs.getString("theater_code"));
 
 				list.add(userMovieListBeans);
