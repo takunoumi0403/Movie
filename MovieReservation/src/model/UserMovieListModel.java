@@ -9,7 +9,7 @@ import dao.UserMovieListDao;
 
 public class UserMovieListModel {
 
-	public List<UserMovieListBeans> getMovieList() throws Exception{
+	public List<List<UserMovieListBeans>> getMovieList() throws Exception{
 
 		List<UserMovieListBeans> list = new ArrayList<UserMovieListBeans>();
 		UserMovieListDao dao = new UserMovieListDao();
@@ -32,7 +32,32 @@ public class UserMovieListModel {
 			throw e;
 		}
 
-		return list;
+		//////////////////////////////////////////
+		//日付ごとのリストを作成
+		List<UserMovieListBeans> iList = new ArrayList<UserMovieListBeans>();
+		List<List<UserMovieListBeans>> oList = new ArrayList<List<UserMovieListBeans>>();
+		UserMovieListBeans listBeans = list.get(0);
+		String date = listBeans.getShowDate();
+		int index = 0;
+
+		for(UserMovieListBeans beans : list) {
+
+			//日付判定
+			if( !((beans.getShowDate()).equals(date)) ) {
+				oList.add(iList);
+				iList = new ArrayList<UserMovieListBeans>();
+			}
+			iList.add(beans);
+			date = beans.getShowDate();
+
+			//ループの最後
+			if((list.size()-1) == index) {
+				oList.add(iList);
+			}
+			index++;
+		}
+
+		return oList;
 	}
 
 }

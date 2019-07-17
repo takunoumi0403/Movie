@@ -9,20 +9,29 @@
 <title>映画一覧</title>
 </head>
 <body>
-<% 	List<UserMovieListBeans> list = (List<UserMovieListBeans>)request.getAttribute("list");%>
+<% 	List<List<UserMovieListBeans>> oList = (List<List<UserMovieListBeans>>)request.getAttribute("oList");%>
 
 	<form action="movieResavation" method="GET">
-		<table>
-<%		if( list != null){
-			for(UserMovieListBeans listBeans : list){%>
 
-				<tr>
-					<td><a href="movieResavation?showCode=<%=listBeans.getShowCode() %>"><%=listBeans.getMovieName()%>　<%=listBeans.getShowDate() %></a></td>
-					<td><%=listBeans.getTheaterCode() %></td>
-				</tr>
+<%		if( oList != null){
+			for(List<UserMovieListBeans> iList : oList){%>
+
+				<%=(iList.get(0)).getShowDate() %>
+				<table>
+<%				if( iList != null){
+					for(UserMovieListBeans beans : iList){%>
+
+						<tr>
+							<td><%=beans.getTheaterCode() %>　</td>
+							<td><a href="movieResavation?showCode=<%=beans.getShowCode() %>"><%=beans.getMovieName()%></a>　<%=beans.getShowTime()%></td>
+
+						</tr>
+<%					}
+				}%>
+				</table>
 <%			}
 		}%>
-		</table>
+
 	</form>
 
 </body>

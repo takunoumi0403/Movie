@@ -21,12 +21,15 @@ public class UserMovieListDao extends DaoBase{
 			///////////////////////////////////
 			//SELECT文の発行
 			stmt = con.prepareStatement("SELECT m.movie_code, movie_name, movie_time, movie_adress, "
-					+ "movie_thumbnail, movie_description, s.show_code, show_date, t.theater_code, seat_space "
+					+ "movie_thumbnail, movie_description, s.show_code, "
+					+ "DATE_FORMAT(show_date, '%Y-%m-%d') as yyMMdd, "
+					+ "DATE_FORMAT(show_date, '%H:%i') as hhmm, "
+					+ "t.theater_code, seat_space "
 					+ "FROM shows s "
 					+ "INNER JOIN movie m ON s.movie_code=m.movie_code "
 					+ "INNER JOIN theater t ON s.theater_code=t.theater_code "
 					+ "WHERE s.show_date BETWEEN ? AND ? "
-					+ "ORDER BY m.movie_time, m.movie_code, t.theater_code");
+					+ "ORDER BY yyMMdd, m.movie_code, hhmm, t.theater_code");
 
 			stmt.setString(1, today);
 			stmt.setString(2, aTommorow);
@@ -46,7 +49,8 @@ public class UserMovieListDao extends DaoBase{
 				userMovieListBeans.setMovieThumbnail(rs.getString("movie_thumbnail"));
 				userMovieListBeans.setMovieDescription(rs.getString("movie_description"));
 				userMovieListBeans.setShowCode(rs.getString("show_code"));
-				userMovieListBeans.setShowDate(rs.getString("show_date"));
+				userMovieListBeans.setShowDate(rs.getString("yyMMdd"));
+				userMovieListBeans.setShowTime(rs.getString("hhmm"));
 				userMovieListBeans.setTheaterCode(rs.getString("theater_code"));
 
 				list.add(userMovieListBeans);
