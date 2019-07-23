@@ -47,15 +47,22 @@
 							<ul class="list-group list-group-horizontal">
 <% 						}%>
 
-						<li class="list-group-item text-center mr-2"><a href="movieResavation?showCode=<%=beans.getShowCode() %>">
-<%						if(beans.getSeatSpace() == 0){ %>
-							<span class="text-danger h4">×</span>
-<%						 }else if(beans.getSeatSpace() < 10){%>
-							<span class="text-primary h4">△</span>
-<%						}else{ %>
-							<span class="text-info h4">○</span>
-<%						} %>
-						<br><%=beans.getShowTime()%></a></li>
+						<li class="list-group-item text-center mr-2">
+
+<%							if(beans.getSeatSpace() == 0){ %>
+								<span class="text-danger h4">×</span>
+								<br><%=beans.getShowTime()%>
+<%							} else{%>
+								<a href="movieReservation?showCode=<%=beans.getShowCode() %>">
+<%								if(beans.getSeatSpace() < 20){%>
+									<span class="text-warning h4">△</span>
+<%								}else{ %>
+									<span class="text-info h4">○</span>
+<%								} %>
+								<br><%=beans.getShowTime()%></a>
+<%							} %>
+
+						</li>
 <%						name = beans.getMovieName();
 					}
 				}%>
