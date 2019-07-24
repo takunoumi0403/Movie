@@ -132,4 +132,21 @@ public class MovieReservationModel {
 
 		return list;
 	}
+
+	/**
+	 * 会員の予約を削除するメソッド
+	 * @param reservationCode
+	 * @param reservationDetailsCode
+	 * @param reservationDetailsCode2
+	 */
+	public void deleteUserReservation(String userCode,String reservationCode, String reservationDetailsCode) throws Exception{
+		//Daoの生成
+		ReservationDao reservationDao = new ReservationDao();
+
+		//データベースに接続
+		reservationDao.connect();
+
+		//予約を削除する
+		reservationDao.deleteUserReservation(userCode,reservationCode,reservationDetailsCode);
+	}
 }

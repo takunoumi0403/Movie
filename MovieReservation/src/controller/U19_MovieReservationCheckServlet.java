@@ -39,10 +39,6 @@ public class U19_MovieReservationCheckServlet extends HttpServlet {
 		//選択した席、上映コード、ユーザーの情報を元に、予約する映画の詳細をリスト型で受け取る。
 		List<UserReservationBeans> list = reservationModel.getReservationInfo(selectSeats,showCode);
 
-		for(UserReservationBeans beanss : list) {
-			System.out.println("list setNum : " + beanss.getSeatNumber());
-		}
-
 		//リクエストスコープにListを格納する
 		session.setAttribute("list", list);
 

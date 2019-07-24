@@ -103,17 +103,8 @@ public class ShowDao extends DaoBase {
 				list.add(beans);
 			}
 
-			for( UserReservationBeans beans1 : list) {
-				System.out.println("-------------------------------------------------------");
-				System.out.println("movie_name === " + beans1.getMovieName() + "\n" +
-						"show_date === " + beans1.getShowDate() + "\n" +
-						"theater_code === " + beans1.getTheaterCode() + "\n" +
-						"seat_number === " + beans1.getSeatNumber());
-				System.out.println("-------------------------------------------------------");
-			}
-
-
 		}catch(Exception e) {
+			e.printStackTrace();
 		}finally {
 			//データベースの接続を切る
 			if(con!=null) {

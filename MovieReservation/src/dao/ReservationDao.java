@@ -30,7 +30,6 @@ public class ReservationDao extends DaoBase {
 	public List<Integer> getReservedSeat(String showCode) {
 		//リストの生成
 		List<Integer> list = new ArrayList<Integer>();
-		System.out.println(showCode);
 
 		try {
 			//select文の発行
@@ -87,7 +86,6 @@ public class ReservationDao extends DaoBase {
 			while(rs.next()){
 				reservationCode = rs.getString("reservation_code");
 			}
-			System.out.println("予約コード："+reservationCode);
 
 			int i = 0;
 			for(UserReservationBeans beans : list) {
@@ -98,7 +96,6 @@ public class ReservationDao extends DaoBase {
 				//値をセットする
 				stmt.setString(1, reservationCode);
 				stmt.setInt(2, i);
-				System.out.println(beans.getSeatNumber());
 				stmt.setInt(3, ((Integer.parseInt(beans.getSeatNumber()))-1));
 				stmt.setString(4, "1");
 				stmt.executeUpdate();
@@ -133,7 +130,7 @@ public class ReservationDao extends DaoBase {
 		List<UserReservationBeans> list = new ArrayList<UserReservationBeans>();
 
 		try {
-			stmt = con.prepareStatement("select s.show_date,r.reservation_code,rd.detail_number,m.movie_name,rd.seat_number,f.fee from reservation r inner join reservation_details rd on r.reservation_code = rd.reservation_code inner join shows s on r.show_code = s.show_code inner join movie m on s.movie_code = m.movie_code inner join fee f on rd.fee_code = f.fee_code WHERE user_code = ? AND s.show_date > now() ");
+			stmt = con.prepareStatement("select s.show_date,r.reservation_code,rd.detail_number,m.movie_name,rd.seat_number,f.fee from reservation r inner join reservation_details rd on r.reservation_code = rd.reservation_code inner join shows s on r.show_code = s.show_code inner join movie m on s.movie_code = m.movie_code inner join fee f on rd.fee_code = f.fee_code WHERE user_code = ? AND s.show_date >= current_date ");
 			//			stmt.setString(1, userInfoBeans.getUserCode());
 			stmt.setInt(1, 1);
 
@@ -164,5 +161,32 @@ public class ReservationDao extends DaoBase {
 			}
 		}
 		return list;
+	}
+
+	/**
+	 * 予約の削除を行うメソッド
+	 * @param userCode
+	 * @param reservationCode
+	 * @param reservationDetailsCode
+	 * @throws SQLException
+	 */
+	public void deleteUserReservation(String userCode, String reservationCode, String reservationDetailsCode) throws SQLException {
+		try {
+			stmt = con.prepareStatement("DELETE FROM reservation WHERE user_code = ? AND reservation_code = ?");
+			stmt.setString(1, userCode);
+			stmt.setString(2, reservationCode);
+
+
+			stmt = con.prepareStatement("DELETE FROM reservation_details WHERE reservation_details = ? AND reservation_code = ?");
+			stmt.setString(1, reservationDetailsCode);
+			stmt.setString(2, reservationCode);
+
+			stmt.executeUpdate();
+		}catch(Exception e) {
+			con.close();
+		}finally {
+			con.close();
+		}
+
 	}
 }
