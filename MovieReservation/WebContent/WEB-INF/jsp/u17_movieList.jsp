@@ -13,6 +13,7 @@
 <body>
 <% 	List<List<UserMovieListBeans>> oList = (List<List<UserMovieListBeans>>)request.getAttribute("oList");%>
 <%	String name = "";
+	String theater = "";
 	int index = 1;%>
 <div class="container">
 	<h2 class="mt-3 mb-3">上映一覧</h2>
@@ -35,9 +36,11 @@
 <%			for(List<UserMovieListBeans> iList : oList){%>
 				<div id="tab<%=index %>" class="tab-pane<%if(index==1){%> active<%}%>">
 				<h5 class="mt-3"><%=(iList.get(0)).getMovieName() %></h5>
-<%				name = (iList.get(0)).getMovieName(); %>
+<%				name = (iList.get(0)).getMovieName();
+				theater = (iList.get(0)).getTheaterCode();%>
 
 				<ul class="list-group list-group-horizontal">
+					<li class="list-group-item text-center mr-2 mb-1">シアター<br><%=(iList.get(0)).getTheaterCode() %></li>
 <%				if( iList != null){
 					for(UserMovieListBeans beans : iList){%>
 
@@ -45,9 +48,14 @@
 							</ul>
 								<h5 class="mt-3"><%= beans.getMovieName() %></h5>
 							<ul class="list-group list-group-horizontal">
-<% 						}%>
+								<li class="list-group-item text-center mr-2 mb-1">シアター<br><%=beans.getTheaterCode() %></li>
+<% 						}else if(!(beans.getTheaterCode().equals(theater))){%>
+							</ul>
+							<ul class="list-group list-group-horizontal">
+								<li class="list-group-item text-center mr-2 mb-1">シアター<br><%=beans.getTheaterCode() %></li>
+<%						} %>
 
-						<li class="list-group-item text-center mr-2">
+						<li class="list-group-item text-center mr-2 mb-1">
 
 <%							if(beans.getSeatSpace() == 0){ %>
 								<span class="text-danger h4">×</span>
@@ -64,6 +72,7 @@
 
 						</li>
 <%						name = beans.getMovieName();
+						theater = beans.getTheaterCode();
 					}
 				}%>
 				</ul>
