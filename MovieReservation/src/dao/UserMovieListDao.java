@@ -29,7 +29,7 @@ public class UserMovieListDao extends DaoBase{
 					+ "INNER JOIN movie m ON s.movie_code=m.movie_code "
 					+ "INNER JOIN theater t ON s.theater_code=t.theater_code "
 					+ "WHERE s.show_date BETWEEN ? AND ? "
-					+ "ORDER BY yyMMdd, m.movie_code, hhmm");
+					+ "ORDER BY yyMMdd, m.movie_code, t.theater_code, hhmm");
 
 			stmt.setString(1, today);
 			stmt.setString(2, aTommorow);
