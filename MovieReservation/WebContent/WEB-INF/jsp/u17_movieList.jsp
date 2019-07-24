@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="css/u17.css">
 </head>
 <body>
+	<jsp:include page="./header/userHeader.jsp"/>
+
 <% 	List<List<UserMovieListBeans>> oList = (List<List<UserMovieListBeans>>)request.getAttribute("oList");%>
 <%	String name = "";
 	String theater = "";
