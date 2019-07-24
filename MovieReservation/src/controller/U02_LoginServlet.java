@@ -38,10 +38,12 @@ public class U02_LoginServlet extends HttpServlet {
 		//ログイン情報の有無で遷移先を決定する。
 		if(userInfoBeans != null) {
 			//ログイン情報がある時
+			session.setAttribute("userInfoBeans", userInfoBeans);
 			dispatcher = request.getRequestDispatcher("WEB-INF/jsp/top.jsp");
 		}else {
 			//ログイン情報がない時
-			dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
+			response.sendRedirect("login?erro=1");
+			return;
 		}
 
 		//セッションにセットする

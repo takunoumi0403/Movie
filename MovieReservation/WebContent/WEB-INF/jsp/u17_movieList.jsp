@@ -62,7 +62,6 @@
 								<br><%=beans.getShowTime()%></a>
 <%							} %>
 
-						</li>
 <%						name = beans.getMovieName();
 					}
 				}%>

@@ -23,28 +23,27 @@
 		//空席を予約席に変更する。
 		seat[reservedSeatNum] = 1;
 	}
+
+	String showCode = (String)request.getAttribute("showCode");
+
 %>
 
 <body>
-<form action="movieReservationCheck">
-<center>
 <h1>座席表</h1>
-<form action="movieReservationCheck" method="get">
+<form action="movieReservationCheck?showCode=<%=showCode %>" method="post">
 	<table border="1">
-		<tr><td height="100px" colspan="20"><center>スクリーン</center></td></tr>
+		<tr><td height="100px" colspan="20">スクリーン</td></tr>
 		<%try{ %>
 			<% for(int i =0; i < (maxSeatSpace/20)+1; i++){ %>
-			<%System.out.println(i); %>
 			<tr>
 				<%for(int j = 0; j < 20; j++){ %>
-				<%System.out.println((i*20)+j); %>
 					<% if(seat[(i*20)+j] != 1){ %>
 						<td width="50px" height="100" style="background-color:skyblue;">
-							<input type="checkbox" name="vacantSeat" value="<%=(i*20)+j%>" id="seat"><%=(i*20)+j+1 %>
+							<input type="checkbox" name="vacantSeat" value="<%=(i*20)+j+1%>" id="seat"><%=(i*20)+j+1 %>
 						</td>
 					<% }else{ %>
 						<td style="background-color:silver;">
-							<center><h6>予約済</h6></center>
+							<h6>予約済</h6>
 						</td>
 					<% } %>
 				<%} %>
@@ -52,12 +51,11 @@
 			<% } %>
 		<%}catch(Exception e){ } %>
 		<tr>
-			<td style="text-align:left;"colspan="10"><input type="submit" style="width:100px; height:100px;" value="戻る"></form></td>
-			<td style="text-align:right;" colspan="10"><input type="submit" style="width:100px; height:100px;" type="submit" value="決定"></form></td>
+			<td style="text-align:left;"colspan="10"><input type="submit" style="width:100px; height:100px;" value="戻る"></td>
+			<td style="text-align:right;" colspan="10"><input type="submit" style="width:100px; height:100px;" type="submit" value="決定"></td>
 		</tr>
 	</table>
 </form>
-</center>
 
 </body>
 </html>

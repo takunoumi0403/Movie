@@ -14,8 +14,14 @@ public class U11_DeleteUserResevationServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/top.jsp");
+		//値を受け取る
+		String reservationCode = request.getParameter("reservationCode");
+		String reservationDetailsCode = request.getParameter("reservationDetailsCode");
+
+		request.setAttribute("reservationCode", reservationCode);
+		request.setAttribute("reservationDetailsCode", reservationDetailsCode);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/u11_reservationDeleteCheck.jsp");
 		dispatcher.forward(request, response);
 	}
-
 }
