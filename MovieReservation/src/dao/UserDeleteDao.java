@@ -10,8 +10,8 @@ public class UserDeleteDao extends DaoBase{
 
 		try{
 			///////////////////////////////////
-			//DELETE文の発行
-			stmt = con.prepareStatement("DELETE FROM user WHERE user_code = ?");
+			//UPDATE文の発行(削除フラグ)
+			stmt = con.prepareStatement("UPDATE user SET delete_flag = 1 WHERE user_code = ?");
 			stmt.setString(1, userCode);
 			stmt.executeUpdate();
 
