@@ -13,7 +13,8 @@
 <body>
 	<jsp:include page="./header/userHeader.jsp"/>
 
-<% 	List<List<UserMovieListBeans>> oList = (List<List<UserMovieListBeans>>)request.getAttribute("oList");%>
+<% 	List<List<UserMovieListBeans>> oList = (List<List<UserMovieListBeans>>)request.getAttribute("oList");
+	String[] dList = (String[])request.getAttribute("dList");%>
 <%	String name = "";
 	String theater = "";
 	int index = 1;%>
@@ -22,21 +23,21 @@
 	<form action="movieResavation" method="GET">
 
 <%		if( oList != null){%>
-			<ul class="nav nav-pills">
+			<ul class="nav nav-pills ml-5">
 				  <li class="nav-item">
-				    <a href="#tab1" class="nav-link active" data-toggle="tab"><%=oList.get(0).get(0).getShowDate() %></a>
+				    <a href="#tab1" class="nav-link active" data-toggle="tab"><%=dList[0]%></a>
 				  </li>
 				  <li class="nav-item">
-				    <a href="#tab2" class="nav-link" data-toggle="tab"><%=oList.get(1).get(0).getShowDate() %></a>
+				    <a href="#tab2" class="nav-link" data-toggle="tab"><%=dList[1]%></a>
 				  </li>
 				  <li class="nav-item">
-				    <a href="#tab3" class="nav-link" data-toggle="tab"><%=oList.get(2).get(0).getShowDate() %></a>
+				    <a href="#tab3" class="nav-link" data-toggle="tab"><%=dList[2]%></a>
 				  </li>
 			</ul>
 			<div class="tab-content">
 
 <%			for(List<UserMovieListBeans> iList : oList){%>
-				<div id="tab<%=index %>" class="tab-pane<%if(index==1){%> active<%}%>">
+				<div id="tab<%=index %>" class="tab-pane<%if(index==1){%> active<%}%> ml-5">
 				<h5 class="mt-3"><%=(iList.get(0)).getMovieName() %></h5>
 <%				name = (iList.get(0)).getMovieName();
 				theater = (iList.get(0)).getTheaterCode();%>
