@@ -23,18 +23,13 @@ public class U18_MovieReservationServlet extends HttpServlet {
 		MovieReservationModel movieReservationModel = new MovieReservationModel();
 		int maxSeatSpace = movieReservationModel.getMaxSeatSpace(showCode);
 
-		System.out.println("1:"+maxSeatSpace);
-
 		//すでに予約がされている座席を取得する。
 		List<Integer> reservedSeatList = movieReservationModel.getReservedSeat(showCode);
-
-		for(int i : reservedSeatList) {
-			System.out.println(i+":"+i);
-		}
 
 		//リクエストスコープに、最大座席数を設定する。
 		request.setAttribute("maxSeatSpace", maxSeatSpace);
 		request.setAttribute("reservedSeatList", reservedSeatList);
+		request.setAttribute("showCode", showCode);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/u18_movieReservation.jsp");
 		dispatcher.forward(request, response);
