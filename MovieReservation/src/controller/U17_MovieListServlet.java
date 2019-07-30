@@ -22,6 +22,7 @@ public class U17_MovieListServlet extends HttpServlet {
 
 		UserMovieListModel userMovieModel = new UserMovieListModel();
 		List<List<UserMovieListBeans>> oList = null;
+
 		try {
 			oList = userMovieModel.getMovieList();
 		} catch (Exception e1) {
@@ -29,7 +30,11 @@ public class U17_MovieListServlet extends HttpServlet {
 			e1.printStackTrace();
 		}
 
+		String[] dList = userMovieModel.getWeek();
+
+
 		request.setAttribute("oList", oList);
+		request.setAttribute("dList", dList);
 
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/u17_movieList.jsp");

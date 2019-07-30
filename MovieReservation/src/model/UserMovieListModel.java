@@ -15,9 +15,13 @@ public class UserMovieListModel {
 		UserMovieListDao dao = new UserMovieListDao();
 
 		Calendar cal1 = Calendar.getInstance();
-		String today = cal1.get(Calendar.YEAR)+"-"+(cal1.get(Calendar.MONTH)+1)+"-"+cal1.get(Calendar.DATE)+" 00:00:00";
+		Calendar cal2 = Calendar.getInstance();
+		cal2.add(Calendar.DAY_OF_MONTH, 3);
 
-        String aTomorrow = cal1.get(Calendar.YEAR)+"-"+(cal1.get(Calendar.MONTH)+1)+"-"+(cal1.get(Calendar.DATE)+3)+" 00:00:00";
+		String today = cal1.get(Calendar.YEAR)+"-"+(cal1.get(Calendar.MONTH)+1)+"-"+cal1.get(Calendar.DATE)+" 00:00:00";
+        String aTomorrow = cal2.get(Calendar.YEAR)+"-"+(cal2.get(Calendar.MONTH)+1)+"-"+(cal2.get(Calendar.DATE))+" 00:00:00";
+
+
 
 		try{
 			///////////////////////////////////
@@ -58,6 +62,32 @@ public class UserMovieListModel {
 		}
 
 		return oList;
+	}
+
+	public String[] getWeek() {
+
+		Calendar cal1 = Calendar.getInstance();
+		Calendar cal2 = Calendar.getInstance();
+		cal2.add(Calendar.DAY_OF_MONTH, 1);
+		Calendar cal3 = Calendar.getInstance();
+		cal3.add(Calendar.DAY_OF_MONTH, 2);
+
+		String[] week = new String[7];
+        week[0] = "日";
+        week[1] = "月";
+        week[2] = "火";
+        week[3] = "水";
+        week[4] = "木";
+        week[5] = "金";
+        week[6] = "土";
+
+        String date1 = (cal1.get(Calendar.MONTH)+1) + "/" + cal1.get(Calendar.DATE) + "（" + week[cal1.get(Calendar.DAY_OF_WEEK)-1] + "）";
+        String date2 = (cal2.get(Calendar.MONTH)+1) + "/" + cal2.get(Calendar.DATE) + "（" + week[cal2.get(Calendar.DAY_OF_WEEK)-1] + "）";
+        String date3 = (cal3.get(Calendar.MONTH)+1) + "/" + cal3.get(Calendar.DATE) + "（" + week[cal3.get(Calendar.DAY_OF_WEEK)-1] + "）";
+
+        String[] dList = {date1, date2, date3};
+
+        return dList;
 	}
 
 }
