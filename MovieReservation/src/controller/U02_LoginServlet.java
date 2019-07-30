@@ -13,8 +13,15 @@ import javax.servlet.http.HttpSession;
 import beans.UserInfoBeans;
 import model.UserModel;
 
-@WebServlet("/top")
+@WebServlet("/uauth")
 public class U02_LoginServlet extends HttpServlet {
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/top.jsp");
+		dispatcher.forward(request, response);
+	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -34,14 +41,17 @@ public class U02_LoginServlet extends HttpServlet {
 
 		//ユーザーモデルの中のメソッド、Login(String,String)を実行する。
 		UserInfoBeans userInfoBeans = userModel.login(mail,password);
+		System.out.println(userInfoBeans);
 
 		//ログイン情報の有無で遷移先を決定する。
 		if(userInfoBeans != null) {
 			//ログイン情報がある時
+			session.setAttribute("userInfoBeans", userInfoBeans);
 			dispatcher = request.getRequestDispatcher("WEB-INF/jsp/top.jsp");
 		}else {
 			//ログイン情報がない時
-			dispatcher = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
+			response.sendRedirect("login?erro=1");
+			return;
 		}
 
 		//セッションにセットする
