@@ -47,5 +47,35 @@ public class UserModel {
 
 	}
 
+	public boolean signup( UserInfoBeans beans) {
+		UserDao userDao = new UserDao();
+
+		try {
+			return userDao.insertUser(beans);
+
+
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public void update(UserInfoBeans beans) {
+		UserDao dao = new UserDao();
+
+		try {
+			//データベース接続
+			dao.connect();
+           dao.updateUser(beans);
+
+
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+
+
 }
 

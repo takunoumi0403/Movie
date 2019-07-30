@@ -6,13 +6,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+
 <body>
-	<
-	<form action="signUpCheck">
+	<%
+		String erro = (String) request.getAttribute("mess");
+	%>
+	<%
+		String bean = (String) request.getAttribute("UserInfoBeans");
+	%>
+	<%=erro%>
+	<form action="signUpCheck" method="POST">
 		<table>
 			<tr>
 				<td>メールアドレス</td>
-				<td><input type="submit" name="address"></td>
+				<td><input type="text" name="address"></td>
 			</tr>
 			<tr>
 				<td>パスワード</td>
@@ -23,15 +30,19 @@
 				<td><input type="password" name="rpass"></td>
 			</tr>
 			<tr>
+				<td>電話番号</td>
+				<td><input type="text" name="userphone"></td>
+			</tr>
+			<tr>
 				<td>氏名</td>
 				<td>性<input type="text" name="sei"> 名<input type="text"
 					name="mei"></td>
 			</tr>
 			<tr>
 				<td>性別</td>
-				<td>[男性]<input type="radio" name="male"> [女性] <input
-					type="radio" name="female"> [その他]<input type="radio"
-					name="onther">
+				<td>[男性]<input type="radio" name="sex" value="M"> [女性]
+					<input type="radio" name="sex" value="F"> [その他]<input
+					type="radio" name="sex" value="A">
 				<td>生年月日</td>
 				<td>西暦<select name="year">
 						<option value="">-</option>
@@ -221,6 +232,8 @@
 				type="submit" name="submit" value="入力内容を確認する">
 		</p>
 	</form>
+
+
 
 </body>
 </html>
