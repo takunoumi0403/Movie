@@ -29,33 +29,40 @@
 %>
 
 <body>
-<h1>座席表</h1>
-<form action="movieReservationCheck?showCode=<%=showCode %>" method="post">
-	<table border="1">
-		<tr><td height="100px" colspan="20">スクリーン</td></tr>
+	<jsp:include page="./header/userHeader.jsp"/>
+	<div class="w-75 mx-auto">
+	<h1>座席表</h1>
+	<form action="movieReservationCheck?showCode=<%=showCode %>" method="post">
+		<table class="table text-center table-bordered">
+			<tr><td height="100px" colspan="20"><h1>SCREEN</h1></td></tr>
+		</table>
 		<%try{ %>
 			<% for(int i =0; i < (maxSeatSpace/20)+1; i++){ %>
-			<tr>
-				<%for(int j = 0; j < 20; j++){ %>
-					<% if(seat[(i*20)+j] != 1){ %>
-						<td width="50px" height="100" style="background-color:skyblue;">
-							<input type="checkbox" name="vacantSeat" value="<%=(i*20)+j+1%>" id="seat"><%=(i*20)+j+1 %>
-						</td>
-					<% }else{ %>
-						<td style="background-color:silver;">
-							<h6>予約済</h6>
-						</td>
-					<% } %>
-				<%} %>
-			</tr>
+			<table class="table-bordered mx-auto text-center">
+				<tr>
+					<%for(int j = 0; j < 20; j++){ %>
+						<% if(seat[(i*20)+j] != 1){ %>
+							<td width="50px" height="100" style="background-color:skyblue;">
+								<input type="checkbox" name="vacantSeat" value="<%=(i*20)+j+1%>" id="seat"><%=(i*20)+j+1 %>
+							</td>
+						<% }else{ %>
+							<td width="50px" height="100" class="bg-light">
+								<h6>予約済</h6>
+							</td>
+						<% } %>
+					<%} %>
+				</tr>
+			</table>
 			<% } %>
 		<%}catch(Exception e){ } %>
+	</div>
+	<table>
 		<tr>
-			<td style="text-align:left;"colspan="10"><input type="submit" style="width:100px; height:100px;" value="戻る"></td>
-			<td style="text-align:right;" colspan="10"><input type="submit" style="width:100px; height:100px;" type="submit" value="決定"></td>
+			<a href="movieList"><button type="button" class="mb-5 mt-3 btn float-left btn-secondary btn-lg">戻る</button></a>
+			<button type="submit" class="mb-5 mt-3 btn float-right btn-primary btn-lg">決定</button>
 		</tr>
 	</table>
-</form>
-
+	</form>
 </body>
+
 </html>

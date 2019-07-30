@@ -9,15 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/signUp")
-public class U03_SignUpServlet extends HttpServlet {
-
+@WebServlet("/deleteUserReservationCheck")
+public class U11_DeleteUserResevationCheckServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/u06_myPage.jsp");
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/u11_deleteReservationCheck.jsp");
 		dispatcher.forward(request, response);
-
 	}
-
 }

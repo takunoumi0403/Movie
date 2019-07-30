@@ -12,9 +12,9 @@
 </head>
 <body>
 	<jsp:include page="./header/userHeader.jsp"/>
-
 <% 	List<List<UserMovieListBeans>> oList = (List<List<UserMovieListBeans>>)request.getAttribute("oList");
 	String[] dList = (String[])request.getAttribute("dList");%>
+
 <%	String name = "";
 	String theater = "";
 	int index = 1;%>

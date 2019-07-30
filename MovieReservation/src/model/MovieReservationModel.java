@@ -139,7 +139,7 @@ public class MovieReservationModel {
 	 * @param reservationDetailsCode
 	 * @param reservationDetailsCode2
 	 */
-	public void deleteUserReservation(String userCode,String reservationCode, String reservationDetailsCode) throws Exception{
+	public void deleteUserReservation(String reservationCode, String reservationDetailsCode) throws Exception{
 		//Daoの生成
 		ReservationDao reservationDao = new ReservationDao();
 
@@ -147,6 +147,6 @@ public class MovieReservationModel {
 		reservationDao.connect();
 
 		//予約を削除する
-		reservationDao.deleteUserReservation(userCode,reservationCode,reservationDetailsCode);
+		reservationDao.deleteUserReservation(reservationCode,reservationDetailsCode);
 	}
 }

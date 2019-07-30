@@ -12,6 +12,13 @@
 %>
 
 <body>
-予約完了
+	<jsp:include page="./header/userHeader.jsp"/>
+	<div class="w-75 mx-auto text-center">
+		<h3 class="mt-5"><u>予約が完了しました</u></h3>
+
+		<form action="movieList"><button class="btn btn-primary mt-3 mb-1">上映一覧に戻る</button></form>
+		<form action="uauth"><button class="btn btn-secondary my-1">トップ画面に戻る</button></form>
+	</div>
+
 </body>
 </html>

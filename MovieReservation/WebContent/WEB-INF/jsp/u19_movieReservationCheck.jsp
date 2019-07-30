@@ -16,38 +16,51 @@
 %>
 
 <body>
-<table border="1" style="text-align:center;">
-	<tr>
-		<td>映画名</td>
-		<td>上映時間</td>
-		<td>シアターコード</td>
-		<td>座席</td>
-	</tr>
-	<%beans = list.get(0); %>
-	<tr>
-		<td rowspan="<%=list.size()+1%>">
-			<%= beans.getMovieName()%>
-		</td>
+	<jsp:include page="./header/userHeader.jsp"/>
+	<div class="w-75 mx-auto text-center">
+		<table class="table table-bordered table-hover mt-5" id="ReservationList">
+			<thead>
+				<tr><td colspan="4"><h3>以下の情報で予約しますか？</h3></td></tr>
+				<tr>
+					<td>映画名</td>
+					<td>上映時間</td>
+					<td>シアターコード</td>
+					<td>座席</td>
+				</tr>
+			</thead>
+			<tbody>
+				<%beans = list.get(0); %>
+				<tr>
+					<td rowspan="<%=list.size()+1%>">
+						<%= beans.getMovieName()%>
+					</td>
 
-		<td rowspan="<%=list.size()+1%>">
-			<%= beans.getShowDate()%>
-		</td>
+					<td rowspan="<%=list.size()+1%>">
+						<%= beans.getShowDate()%>
+					</td>
 
-		<td rowspan="<%=list.size()+1%>">
-			<%= beans.getTheaterCode()%>
-		</td>
-	</tr>
-<% for(UserReservationBeans beans1 : list) {%>
-	<tr>
-		<td>
-			<%=beans1.getSeatNumber() %>
-		</td>
-	</tr>
-<% } %>
-</table>
+					<td rowspan="<%=list.size()+1%>">
+						<%= beans.getTheaterCode()%>
+					</td>
+				</tr>
+			<% for(UserReservationBeans beans1 : list) {%>
+				<tr>
+					<td>
+						<%=beans1.getSeatNumber() %>
+					</td>
+				</tr>
+			<% } %>
+			</tbody>
+		</table>
 
+<form action="movieReservationComplete"><button type="submit" class="btn btn-primary float-right">はい</button></form>
+<form action="movieList"><button type="submit" class="btn btn-secondary float-left">キャンセル</button></form>
 
-以上の<%=size %>席を予約します <a href="movieReservationComplete">はい</a>　<a href="">いいえ</a>
-
+	</div>
+<script>
+    $(document).ready( function () {
+        $('#ReservationList').bdt();
+    });
+</script>
 </body>
 </html>

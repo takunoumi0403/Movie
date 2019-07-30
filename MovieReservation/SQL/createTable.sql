@@ -40,12 +40,14 @@ create table user(
 	`gender_code` VARCHAR(4) NOT NULL,
 	`user_birth` DATE NOT NULL,
 	`user_pass` VARCHAR(64) NOT NULL,
+	`delete_flag` bit(1) NOT NULL,
 	PRIMARY KEY(`user_code`),
 	FOREIGN KEY `user`(gender_code) REFERENCES `gender`(gender_code)
 );
 
-INSERT INTO `user`(`user_mail`,`user_name`,`user_phone`,`gender_code`,`user_birth`,`user_pass`) VALUES('1701163@st.asojuku.ac.jp','吉野拓海','090-9405-0043','M','1998/04/03','aiueo');
-INSERT INTO  user(`user_mail`,`user_name`,`user_phone`,`gender_code`,`user_birth`,`user_pass`) values("id","name","phone","M","1990-01-01","pass");
+INSERT INTO `user`(`user_mail`,`user_name`,`user_phone`,`gender_code`,`user_birth`,`user_pass`,`delete_flag`) VALUES('1701163@st.asojuku.ac.jp','吉野拓海','090-9405-0043','M','1998/04/03','aiueo',0);
+INSERT INTO  user(`user_mail`,`user_name`,`user_phone`,`gender_code`,`user_birth`,`user_pass`,`delete_flag`) values("id","name","phone","M","1990-01-01","pass",0);
+INSERT INTO  user(`user_mail`,`user_name`,`user_phone`,`gender_code`,`user_birth`,`user_pass`,`delete_flag`) values("id1","name","phone","M","1990-01-01","pass",1);
 
 -- 料金テーブルの作成
 create table fee(
@@ -72,14 +74,14 @@ create table movie(
 	PRIMARY KEY(`movie_code`)
 );
 
-INSERT INTO `movie`(`movie_name`,`movie_time`,`movie_start`,`movie_finish`,`movie_adress`,`movie_thumbnail`,`movie_description`) VALUES('名探偵ピカチュー',90,'2019/06/01','2019/08/01','https://meitantei-pikachu.jp/','../thumbnail/pikachu','全世界待望のハリウッド感動（電）超大作');
-INSERT INTO `movie`(`movie_name`,`movie_time`,`movie_start`,`movie_finish`,`movie_adress`,`movie_thumbnail`,`movie_description`) VALUES('トイストーリー',90,'2019/06/01','2019/08/01','https://www.disney.co.jp/movie/toy4.html','../thumbnail/pikachu','おもちゃが動くぞ！');
-INSERT INTO `movie`(`movie_name`,`movie_time`,`movie_start`,`movie_finish`,`movie_adress`,`movie_thumbnail`,`movie_description`) VALUES('ミュツーの逆襲',90,'2019/06/01','2019/08/01','https://www.pokemon-movie.jp/','../thumbnail/pikachu','ミュツーじゃなくてミュウツーらしいぞ');
-INSERT INTO `movie`(`movie_name`,`movie_time`,`movie_start`,`movie_finish`,`movie_adress`,`movie_thumbnail`,`movie_description`) VALUES('ダイナー',90,'2019/06/01','2019/08/01','http://wwws.warnerbros.co.jp/diner-movie/','../thumbnail/pikachu','ダイナーーーー');
-INSERT INTO `movie`(`movie_name`,`movie_time`,`movie_start`,`movie_finish`,`movie_adress`,`movie_thumbnail`,`movie_description`) VALUES('ザ・ファブル',90,'2019/06/01','2019/08/01','https://meitantei-pikachu.jp/','../thumbnail/pikachu','ファーブル');
-INSERT INTO `movie`(`movie_name`,`movie_time`,`movie_start`,`movie_finish`,`movie_adress`,`movie_thumbnail`,`movie_description`) VALUES('うたのプリンスさまっ',90,'2019/06/01','2019/08/01','https://meitantei-pikachu.jp/','../thumbnail/pikachu','歌うまいね');
-INSERT INTO `movie`(`movie_name`,`movie_time`,`movie_start`,`movie_finish`,`movie_adress`,`movie_thumbnail`,`movie_description`) VALUES('アラジン',90,'2019/06/01','2019/08/01','https://meitantei-pikachu.jp/','../thumbnail/pikachu','魔法のランプの人');
-INSERT INTO `movie`(`movie_name`,`movie_time`,`movie_start`,`movie_finish`,`movie_adress`,`movie_thumbnail`,`movie_description`) VALUES('ゴジラ',90,'2019/06/01','2019/08/01','https://meitantei-pikachu.jp/','../thumbnail/pikachu','おっきい恐竜');
+INSERT INTO `movie`(`movie_name`,`movie_time`,`movie_start`,`movie_finish`,`movie_adress`,`movie_thumbnail`,`movie_description`) VALUES('名探偵ピカチュー',90,'2019/06/01','2019/09/01','https://meitantei-pikachu.jp/','../thumbnail/pikachu','全世界待望のハリウッド感動（電）超大作');
+INSERT INTO `movie`(`movie_name`,`movie_time`,`movie_start`,`movie_finish`,`movie_adress`,`movie_thumbnail`,`movie_description`) VALUES('トイストーリー',90,'2019/06/01','2019/09/01','https://www.disney.co.jp/movie/toy4.html','../thumbnail/pikachu','おもちゃが動くぞ！');
+INSERT INTO `movie`(`movie_name`,`movie_time`,`movie_start`,`movie_finish`,`movie_adress`,`movie_thumbnail`,`movie_description`) VALUES('ミュツーの逆襲',90,'2019/06/01','2019/09/01','https://www.pokemon-movie.jp/','../thumbnail/pikachu','ミュツーじゃなくてミュウツーらしいぞ');
+INSERT INTO `movie`(`movie_name`,`movie_time`,`movie_start`,`movie_finish`,`movie_adress`,`movie_thumbnail`,`movie_description`) VALUES('ダイナー',90,'2019/06/01','2019/09/01','http://wwws.warnerbros.co.jp/diner-movie/','../thumbnail/pikachu','ダイナーーーー');
+INSERT INTO `movie`(`movie_name`,`movie_time`,`movie_start`,`movie_finish`,`movie_adress`,`movie_thumbnail`,`movie_description`) VALUES('ザ・ファブル',90,'2019/06/01','2019/09/01','https://meitantei-pikachu.jp/','../thumbnail/pikachu','ファーブル');
+INSERT INTO `movie`(`movie_name`,`movie_time`,`movie_start`,`movie_finish`,`movie_adress`,`movie_thumbnail`,`movie_description`) VALUES('うたのプリンスさまっ',90,'2019/06/01','2019/09/01','https://meitantei-pikachu.jp/','../thumbnail/pikachu','歌うまいね');
+INSERT INTO `movie`(`movie_name`,`movie_time`,`movie_start`,`movie_finish`,`movie_adress`,`movie_thumbnail`,`movie_description`) VALUES('アラジン',90,'2019/06/01','2019/09/01','https://meitantei-pikachu.jp/','../thumbnail/pikachu','魔法のランプの人');
+INSERT INTO `movie`(`movie_name`,`movie_time`,`movie_start`,`movie_finish`,`movie_adress`,`movie_thumbnail`,`movie_description`) VALUES('ゴジラ',90,'2019/06/01','2019/09/01','https://meitantei-pikachu.jp/','../thumbnail/pikachu','おっきい恐竜');
 
 
 -- 上映テーブルの作成
@@ -94,14 +96,17 @@ create table shows(
 	FOREIGN KEY (`theater_code`) REFERENCES `theater`(`theater_code`)
 );
 
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(1,'2019/07/21 00:00:00',1,325);
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(2,'2019/07/22 00:00:00',2,162);
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(3,'2019/07/23 00:00:00',3,224);
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(3,'2019/07/23 00:00:00',4,10);
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(4,'2019/07/24 00:01:00',1,325);
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(5,'2019/07/26 00:02:00',2,162);
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(6,'2019/07/25 00:01:00',1,325);
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(7,'2019/07/27 00:02:00',2,162);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(1,current_date,1,325);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(2,current_date,2,162);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(3,current_date,3,224);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(3,date_add(current_date,interval 1 day),4,10);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(4,date_add(current_date,interval 1 day),1,325);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(5,date_add(current_date,interval 1 day),2,162);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(6,date_add(current_date,interval 2 day),1,325);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(7,date_add(current_date,interval 2 day),2,162);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(1,date_add(current_date,interval 2 day),2,162);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(2,current_date,3,224);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(3,current_date,3,224);
 
 
 -- 予約テーブルの作成

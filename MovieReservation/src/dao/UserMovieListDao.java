@@ -28,11 +28,9 @@ public class UserMovieListDao extends DaoBase{
 					+ "FROM shows s "
 					+ "INNER JOIN movie m ON s.movie_code=m.movie_code "
 					+ "INNER JOIN theater t ON s.theater_code=t.theater_code "
-					+ "WHERE s.show_date BETWEEN ? AND ? "
+					+ "WHERE s.show_date BETWEEN current_date AND date_add(current_date,interval 2 day) "
 					+ "ORDER BY yyMMdd, m.movie_code, t.theater_code, hhmm");
 
-			stmt.setString(1, today);
-			stmt.setString(2, aTommorow);
 			rs = stmt.executeQuery();
 
 			/////////////////////////////////////

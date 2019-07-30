@@ -69,15 +69,13 @@ public class ReservationDao extends DaoBase {
 			stmt = con.prepareStatement("INSERT INTO reservation(`user_code`,`show_code`) VALUES(?,?)");
 
 			//値をセットする
-			//			stmt.setString(1, userInfoBeans.getUserCode());
-			stmt.setInt(1, 1);
+			stmt.setString(1, userInfoBeans.getUserCode());
 			stmt.setString(2, list.get(0).getShowCode());
 
 			stmt.executeUpdate();
 
 			stmt = con.prepareStatement("SELECT reservation_code FROM reservation WHERE user_code = ? AND show_code = ?");
-			//			stmt.setString(1, userInfoBeans.getUserCode());
-			stmt.setInt(1, 1);
+			stmt.setString(1, userInfoBeans.getUserCode());
 			stmt.setString(2, list.get(0).getShowCode());
 
 			rs = stmt.executeQuery();
@@ -131,8 +129,7 @@ public class ReservationDao extends DaoBase {
 
 		try {
 			stmt = con.prepareStatement("select s.show_date,r.reservation_code,rd.detail_number,m.movie_name,rd.seat_number,f.fee from reservation r inner join reservation_details rd on r.reservation_code = rd.reservation_code inner join shows s on r.show_code = s.show_code inner join movie m on s.movie_code = m.movie_code inner join fee f on rd.fee_code = f.fee_code WHERE user_code = ? AND s.show_date >= current_date ");
-			//			stmt.setString(1, userInfoBeans.getUserCode());
-			stmt.setInt(1, 1);
+			stmt.setString(1, userInfoBeans.getUserCode());
 
 			rs = stmt.executeQuery();
 
@@ -170,23 +167,33 @@ public class ReservationDao extends DaoBase {
 	 * @param reservationDetailsCode
 	 * @throws SQLException
 	 */
-	public void deleteUserReservation(String userCode, String reservationCode, String reservationDetailsCode) throws SQLException {
+	public void deleteUserReservation(String reservationCode, String reservationDetailsCode) throws SQLException {
 		try {
-			stmt = con.prepareStatement("DELETE FROM reservation WHERE user_code = ? AND reservation_code = ?");
-			stmt.setString(1, userCode);
-			stmt.setString(2, reservationCode);
+			//showコードを取得
+			stmt = con.prepareStatement("SELECT * FROM reservation WHERE reservation_code = ?");
+			stmt.setString(1, reservationCode);
 
+			rs = stmt.executeQuery();
+			rs.next();
+			String showCode = rs.getString("show_code");
 
-			stmt = con.prepareStatement("DELETE FROM reservation_details WHERE reservation_details = ? AND reservation_code = ?");
+			//予約詳細を削除
+			stmt = con.prepareStatement("DELETE FROM reservation_details WHERE detail_number = ? AND reservation_code = ?");
 			stmt.setString(1, reservationDetailsCode);
 			stmt.setString(2, reservationCode);
 
 			stmt.executeUpdate();
+
+			//予約削除した分の席を一つ増やす
+			stmt = con.prepareStatement("UPDATE shows SET seat_space = seat_space +1 WHERE show_code = ?");
+			stmt.setString(1, showCode);
+
+			stmt.executeUpdate();
+
 		}catch(Exception e) {
 			con.close();
 		}finally {
 			con.close();
 		}
-
 	}
 }
