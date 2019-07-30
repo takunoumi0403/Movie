@@ -10,8 +10,10 @@ public class UserMovieListBeans implements Serializable {
 	private String movieThumbnail;
 	private String movieDescription;
 	private String showCode;
+	private String showDate;
+	private String showTime;
 	private String theaterCode;
-	private String seatSpace;
+	private int seatSpace;
 
 	public String getMovieCode() {
 		return movieCode;
@@ -55,16 +57,30 @@ public class UserMovieListBeans implements Serializable {
 	public void setShowCode(String showCode) {
 		this.showCode = showCode;
 	}
+
+	public String getShowDate() {
+		return showDate;
+	}
+	public void setShowDate(String showDate) {
+		this.showDate = showDate;
+	}
+
+	public String getShowTime() {
+		return showTime;
+	}
+	public void setShowTime(String showTime) {
+		this.showTime = showTime;
+	}
 	public String getTheaterCode() {
 		return theaterCode;
 	}
 	public void setTheaterCode(String theaterCode) {
 		this.theaterCode = theaterCode;
 	}
-	public String getSeatSpace() {
+	public int getSeatSpace() {
 		return seatSpace;
 	}
-	public void setSeatSpace(String seatSpace) {
+	public void setSeatSpace(int seatSpace) {
 		this.seatSpace = seatSpace;
 	}
 

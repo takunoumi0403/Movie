@@ -10,7 +10,7 @@ import beans.UserMovieListBeans;
 
 public class UserMovieListDao extends DaoBase{
 
-	public List<UserMovieListBeans> getMovieList(String date) throws SQLException{
+	public List<UserMovieListBeans> getMovieList(String today, String aTommorow) throws SQLException{
 		List<UserMovieListBeans> list = new ArrayList<UserMovieListBeans>();
 
 		PreparedStatement stmt = null;
@@ -20,14 +20,17 @@ public class UserMovieListDao extends DaoBase{
 
 			///////////////////////////////////
 			//SELECT文の発行
-			stmt = con.prepareStatement("SELECT movie_code, movie_name, movie_time, movie_address,"
-					+ "movie_thumbnail, movie_description, show_code,theater_code, seat_space"
-					+ "FROM show"
-					+ "INNER JOIN movie ON show.movie_code = movie.movie_code"
-					+ "INNER JOIN theater ON show.theater_code = theater.theater_code"
-					+ "WHERE show.show_date = ?;");
+			stmt = con.prepareStatement("SELECT m.movie_code, movie_name, movie_time, movie_adress, "
+					+ "movie_thumbnail, movie_description, s.show_code, "
+					+ "DATE_FORMAT(show_date, '%Y-%m-%d') as yyMMdd, "
+					+ "DATE_FORMAT(show_date, '%H:%i') as hhmm, "
+					+ "t.theater_code, seat_space "
+					+ "FROM shows s "
+					+ "INNER JOIN movie m ON s.movie_code=m.movie_code "
+					+ "INNER JOIN theater t ON s.theater_code=t.theater_code "
+					+ "WHERE s.show_date BETWEEN current_date AND date_add(current_date,interval 2 day) "
+					+ "ORDER BY yyMMdd, m.movie_code, t.theater_code, hhmm");
 
-			stmt.setString(1, date);
 			rs = stmt.executeQuery();
 
 			/////////////////////////////////////
@@ -40,11 +43,14 @@ public class UserMovieListDao extends DaoBase{
 				userMovieListBeans.setMovieCode(rs.getString("movie_code"));
 				userMovieListBeans.setMovieName(rs.getString("movie_name"));
 				userMovieListBeans.setMovieTime(rs.getString("movie_time"));
-				userMovieListBeans.setMovieAddress(rs.getString("movie_address"));
+				userMovieListBeans.setMovieAddress(rs.getString("movie_adress"));
 				userMovieListBeans.setMovieThumbnail(rs.getString("movie_thumbnail"));
 				userMovieListBeans.setMovieDescription(rs.getString("movie_description"));
 				userMovieListBeans.setShowCode(rs.getString("show_code"));
+				userMovieListBeans.setShowDate(rs.getString("yyMMdd"));
+				userMovieListBeans.setShowTime(rs.getString("hhmm"));
 				userMovieListBeans.setTheaterCode(rs.getString("theater_code"));
+				userMovieListBeans.setSeatSpace(rs.getInt("seat_space"));
 
 				list.add(userMovieListBeans);
 			}

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/userInfoChangeCheck")
+@WebServlet("/userMailChange")
 public class U07_1_UserMailChangeServlet extends HttpServlet {
 
 	@Override

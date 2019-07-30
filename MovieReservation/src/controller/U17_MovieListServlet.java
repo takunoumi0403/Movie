@@ -9,9 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import beans.UserInfoBeans;
 import beans.UserMovieListBeans;
 import model.UserMovieListModel;
 
@@ -22,25 +20,24 @@ public class U17_MovieListServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-		HttpSession session = request.getSession();
-
-		UserInfoBeans userInfoBeans = new UserInfoBeans();
-		userInfoBeans = (UserInfoBeans)session.getAttribute("userInfoBeans");
-
 		UserMovieListModel userMovieModel = new UserMovieListModel();
-		List<UserMovieListBeans> list;
+		List<List<UserMovieListBeans>> oList = null;
 
 		try {
-			list = userMovieModel.getMovieList();
-		} catch (Exception e) {
+			oList = userMovieModel.getMovieList();
+		} catch (Exception e1) {
 			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
+			e1.printStackTrace();
 		}
 
+		String[] dList = userMovieModel.getWeek();
 
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/top.jsp");
+		request.setAttribute("oList", oList);
+		request.setAttribute("dList", dList);
+
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/u17_movieList.jsp");
 		dispatcher.forward(request, response);
 	}
 

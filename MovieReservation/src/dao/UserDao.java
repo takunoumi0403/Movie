@@ -41,7 +41,7 @@ public class UserDao extends DaoBase {
 
 		try {
 			//select文の発行
-			stmt = con.prepareStatement("select * from user where user_mail = ? and user_pass = ?");
+			stmt = con.prepareStatement("select * from user where user_mail = ? and user_pass = ? and delete_flag = 0");
 
 			//値をセットする
 			stmt.setString(1, mail);
