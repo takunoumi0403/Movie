@@ -153,14 +153,14 @@ create table reservation_details(
 -- INSERT INTO `reservation_details`(`reservation_code`,`detail_number`,`seat_number`,`fee_code`) VALUES(3,5,5,1);
 
 -- 管理者テーブルの作成
-create table admin(
+create table adm(
 	`admin_id` INTEGER AUTO_INCREMENT NOT NULL,
 	`admin_name` VARCHAR(128) NOT NULL,
 	`admin_password` VARCHAR(32) NOT NULL,
 	PRIMARY KEY(`admin_id`)
 );
 
-INSERT INTO `admin`(`admin_name`,`admin_password`) VALUES("admin","aiueo");
+INSERT INTO `adm`(`admin_name`,`admin_password`) VALUES("admin","aiueo");
 
 
 -- セレクト文

@@ -11,11 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/signUp")
 public class U03_SignUpServlet extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO 自動生成されたメソッド・スタブ
 
+
+		doPost(req,resp);
+	}
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/u06_myPage.jsp");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/signup.jsp");
+
 		dispatcher.forward(request, response);
 
 	}
