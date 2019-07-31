@@ -1,0 +1,49 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	<%@ page import="beans.UserInfoBeans" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<jsp:include page="./header/userHeader.jsp"/>
+	<div class="w-75 mx-auto ">
+		<%
+			String erro = (String) request.getParameter("erro");
+		%>
+		<%
+			if (erro != null) {
+		%>
+		<p class="ems">IDかパスワードが間違っています</p>
+		<%
+			}
+		%>
+		<div id="main" class="w-50 mx-auto my-5">
+			<form action="uauth" method="post">
+				<table class="w-100 mx-auto">
+					<tr>
+						<td>ID</td>
+					</tr>
+					<tr>
+						<td><input class="w-100 my-2" type="text" name="mail"></td>
+					</tr>
+					<tr>
+						<td>パスワード</td>
+					</tr>
+					<tr>
+						<td><input class="w-100 my-2" type="password" name="password"></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><Button class="my-2 btn btn-primary" type="submit">ログイン</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><a href="signUp" class="btn btn-secondary" role="button">会員登録</a></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

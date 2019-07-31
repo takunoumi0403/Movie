@@ -42,7 +42,7 @@ public class UserDao extends DaoBase {
 
 		try {
 			//select文の発行
-			stmt = con.prepareStatement("select * from user where user_mail = ? and user_pass = ? and delete_flag = 0");
+			stmt = con.prepareStatement("SELECT * , DATE_FORMAT(user_birth,'%Y') as Y , DATE_FORMAT(user_birth,'%m') as M , DATE_FORMAT(user_birth,'%d') as D FROM user WHERE user_mail = ? AND user_pass = ? AND delete_flag = 0");
 
 			//値をセットする
 			stmt.setString(1, mail);
@@ -58,7 +58,9 @@ public class UserDao extends DaoBase {
 				userInfoBeans.setUserName(rs.getString("user_name"));
 				userInfoBeans.setUserPhone(rs.getString("user_phone"));
 				userInfoBeans.setGenderCode(rs.getString("gender_code"));
-				userInfoBeans.setUserBirth(sdf.parse(rs.getString("gender_code")));
+				userInfoBeans.setYear(rs.getString("Y"));
+				userInfoBeans.setMonth(rs.getString("M"));
+				userInfoBeans.setDay(rs.getString("D"));
 			}
 
 		}catch(Exception e) {

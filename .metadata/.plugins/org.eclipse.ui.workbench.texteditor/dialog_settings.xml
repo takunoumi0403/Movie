@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="date_add(current_date,interval 2 day)"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="&apos;2019/07/31 00:00:00&apos;"/>
+			<item value="&apos;2019/07/30 00:00:00&apos;"/>
+			<item value="2019/07/30 00:00:00&apos;"/>
+			<item value="&apos;2019/07/29 00:00:00&apos;"/>
+			<item value="&apos;2019/07/29 00:00:00"/>
+			<item value="user"/>
+			<item value="shows"/>
+			<item value="form"/>
+			<item value="div"/>
+			<item value="dib"/>
+			<item value="src"/>
+			<item value="span"/>
+			<item value="12"/>
+			<item value="400"/>
+			<item value="userCode"/>
+		</list>
+		<list key="replacehistory">
+			<item value="date_add(current_date,interval 2 day)"/>
+			<item value="date_add(current_date,interval 1 day)"/>
+			<item value="current_date"/>
+			<item value="-- "/>
+			<item value=" INSERT"/>
+			<item value="show_code"/>
+			<item value=""/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="835"/>
+		<item key="DIALOG_Y_ORIGIN" value="195"/>
+		<item key="DIALOG_WIDTH" value="282"/>
+		<item key="DIALOG_HEIGHT" value="409"/>
+		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+	</section>
+</section>
