@@ -1,0 +1,63 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<%
+	//座席の最大値を受け取る
+	int maxSeatSpace = (int)request.getAttribute("maxSeatSpace");
+
+	//全て空席状態の配列を作る
+	int seat[] = new int[maxSeatSpace];
+	for(int i = 0; i < seat.length; i++){
+		seat[i] = 0;
+	}
+
+	//埋まっている座席を取得して、seat[]に反映する
+	List<Integer> reservedSeatList = (List<Integer>)request.getAttribute("reservedSeatList");
+	for(int reservedSeatNum : reservedSeatList){
+		//空席を予約席に変更する。
+		seat[reservedSeatNum] = 1;
+	}
+
+	String showCode = (String)request.getAttribute("showCode");
+
+%>
+
+<body>
+	<jsp:include page="./header/userHeader.jsp"/>
+	<div class="w-75 mx-auto">
+	<h1>座席表</h1>
+	<form action="movieReservationCheck?showCode=<%=showCode %>" method="post">
+		<table class="table text-center table-bordered">
+			<tr><td height="100px" colspan="20"><h1>SCREEN</h1></td></tr>
+		</table>
+		<%try{ %>
+			<% for(int i =0; i < (maxSeatSpace/20)+1; i++){ %>
+			<table class="table-bordered mx-auto text-center">
+				<tr>
+					<%for(int j = 0; j < 20; j++){ %>
+						<% if(seat[(i*20)+j] != 1){ %>
+							<td width="50px" height="100" style="background-color:skyblue;">
+								<input type="checkbox" name="vacantSeat" value="<%=(i*20)+j+1%>" id="seat"><%=(i*20)+j+1 %>
+							</td>
+						<% }else{ %>
+							<td width="50px" height="100" class="bg-light">
+								<h6>予約済</h6>
+							</td>
+						<% } %>
+					<%} %>
+				</tr>
+			</table>
+			<% } %>
+		<%}catch(Exception e){ } %>
+	</div>
+		<form action=""><button type="submit" class="btn float-left btn-secondary btn-lg">戻る</button></form>
+		<form action=""><button type="submit" class="btn float-right float-none btn-primary btn-lg">決定</button></form>
+</body>
+
+</html>

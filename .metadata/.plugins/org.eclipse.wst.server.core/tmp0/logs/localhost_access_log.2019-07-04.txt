@@ -1,0 +1,5 @@
+127.0.0.1 - - [04/Jul/2019:11:06:52 +0900] "GET / HTTP/1.1" 404 1103
+0:0:0:0:0:0:0:1 - - [04/Jul/2019:11:06:52 +0900] "GET /MovieReservation/movieReservation HTTP/1.1" 200 11093
+127.0.0.1 - - [04/Jul/2019:12:02:03 +0900] "GET / HTTP/1.1" 404 1103
+0:0:0:0:0:0:0:1 - - [04/Jul/2019:12:02:04 +0900] "GET /MovieReservation/movieReservation HTTP/1.1" 200 11093
+0:0:0:0:0:0:0:1 - - [04/Jul/2019:14:00:56 +0900] "GET /MovieReservation/movieReservationCheck?vacantSeat=10 HTTP/1.1" 200 144

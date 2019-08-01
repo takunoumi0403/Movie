@@ -176,6 +176,4 @@ select * from admin;
 SELECT DATE_FORMAT(show_date,'%Y/%m/%d') as YYMMDD ,DATE_FORMAT(show_date,' %H:%i:%s') as HHMMSS
 FROM shows ORDER BY YYMMDD , HHMMSS;
 
-
-SELECT * FROM reservation INNER JOIN reservation_details ON reseravtion.reservation_code = reservation_details.reservation_code INNER JOIN fee ON reservation_details.fee_code = fee.fee_code INNER JOIN shows ON shows.show_code = reservation.show_code INNER JOIN movie ON shows.movie_code = movie.movie_code WHERE user_code = 1;
-select s.show_date,r.reservation_code,rd.detail_number,m.movie_name,rd.seat_number,f.fee from reservation r inner join reservation_details rd on r.reservation_code = rd.reservation_code inner join shows s on r.show_code = s.show_code inner join movie m on s.movie_code = m.movie_code inner join fee f on rd.fee_code = f.fee_code;
+SELECT * , DATE_FORMAT(user_birth,'%Y') as Y , DATE_FORMAT(user_birth,'%m') as M , DATE_FORMAT(user_birth,'%d') as D FROM user WHERE user_mail = ? AND user_pass = ? AND delete_flag = 0;

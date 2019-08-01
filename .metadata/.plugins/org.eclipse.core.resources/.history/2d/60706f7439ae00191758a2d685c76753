@@ -1,0 +1,45 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="java.util.*"%>
+<%@ page import="beans.UserReservationBeans"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<%
+	UserReservationBeans beans = (UserReservationBeans) session.getAttribute("userReservationBeans");
+	System.out.println(beans);
+%>
+
+<body>
+	<jsp:include page="./header/userHeader.jsp" />
+	<div class="w-75 mx-auto">
+		<table class="table table-hover">
+			<tr>
+				<td colspan="6" class="text-center text-red"><h4>以下の予約を取り消しますか？</h4></td>
+			</tr>
+			<tr>
+				<td>上映時間</td>
+				<td>予約コード</td>
+				<td>予約詳細コード</td>
+				<td>映画名</td>
+				<td>座席</td>
+				<td>金額</td>
+			</tr>
+			<tr>
+				<td><%=beans.getShowDate()%></td>
+				<td><%=beans.getReservationCode()%></td>
+				<td><%=beans.getReservationDetailsCode()%></td>
+				<td><%=beans.getMovieName()%></td>
+				<td><%=beans.getSeatNumber()%></td>
+				<td><%=beans.getFee()%></td>
+			</tr>
+			<tr>
+				<td><a href="deleteUserReservationComplete">以下の予約を削除しますか？</a>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

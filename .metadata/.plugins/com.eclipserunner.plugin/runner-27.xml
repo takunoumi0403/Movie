@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<runner version="1.0.0">
+<category expanded="true" name="カテゴリーなし">
+<launchConfiguration bookmark="false" defaultLaunchMode="run" name="_movieReservation"/>
+<launchConfiguration bookmark="false" defaultLaunchMode="run" name="ローカルホスト の Tomcat8 (Java8)"/>
+</category>
+</runner>
