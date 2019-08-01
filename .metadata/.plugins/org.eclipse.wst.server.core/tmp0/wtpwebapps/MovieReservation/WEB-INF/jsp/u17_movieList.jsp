@@ -59,7 +59,6 @@
 <%						} %>
 
 						<li class="list-group-item text-center mr-2 mb-1">
-
 <%							if(beans.getSeatSpace() == 0){ %>
 								<span class="text-danger h4">×</span>
 								<br><%=beans.getShowTime()%>
@@ -72,6 +71,7 @@
 <%								} %>
 								<br><%=beans.getShowTime()%></a>
 <%							} %>
+						</li>
 
 <%						name = beans.getMovieName();
 						theater = beans.getTheaterCode();

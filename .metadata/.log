@@ -12581,3 +12581,12 @@ java.util.concurrent.TimeoutException
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:661)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1476)
+
+!ENTRY org.eclipse.jface.text 2 0 2019-07-31 10:19:45.083
+!MESSAGE 重複テンプレート ID: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-07-31 10:20:07.715
+!MESSAGE 重複テンプレート ID: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-07-31 10:20:07.753
+!MESSAGE 重複テンプレート ID: 'org.eclipse.wst.xslt.templates.xpath.boolean'
