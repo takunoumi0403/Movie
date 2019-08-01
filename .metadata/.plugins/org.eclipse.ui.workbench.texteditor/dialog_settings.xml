@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="date_add(current_date,interval 2 day)"/>
+		<item key="selection" value="style"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="display"/>
+			<item value="style=&quot;"/>
+			<item value="style"/>
+			<item value="insert"/>
+			<item value="a href"/>
+			<item value="dList"/>
 			<item value="&apos;2019/07/31 00:00:00&apos;"/>
 			<item value="&apos;2019/07/30 00:00:00&apos;"/>
 			<item value="2019/07/30 00:00:00&apos;"/>
@@ -17,12 +23,6 @@
 			<item value="shows"/>
 			<item value="form"/>
 			<item value="div"/>
-			<item value="dib"/>
-			<item value="src"/>
-			<item value="span"/>
-			<item value="12"/>
-			<item value="400"/>
-			<item value="userCode"/>
 		</list>
 		<list key="replacehistory">
 			<item value="date_add(current_date,interval 2 day)"/>
@@ -35,7 +35,7 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="835"/>
+		<item key="DIALOG_X_ORIGIN" value="452"/>
 		<item key="DIALOG_Y_ORIGIN" value="195"/>
 		<item key="DIALOG_WIDTH" value="282"/>
 		<item key="DIALOG_HEIGHT" value="409"/>

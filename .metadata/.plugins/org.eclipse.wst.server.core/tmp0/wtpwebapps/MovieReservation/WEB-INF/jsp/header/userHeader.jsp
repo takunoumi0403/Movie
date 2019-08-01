@@ -15,12 +15,11 @@
 		<span><a href="movieList" class="text-light">上映一覧</a>　　</span>
 		<span>
 <%			if(userInfoBeans == null){ %>
-				<a href="login" class="text-light">ログイン／会員登録　　</a>
+				<a href="login" class="text-light">ログイン／会員登録　　</a></span>
 <%			} else{%>
-				<a href="myPage" class="text-light"><%=userInfoBeans.getUserName() %>さんのマイページ　　</a>
+				<a href="myPage" class="text-light"><%=userInfoBeans.getUserName() %>さんのマイページ　　</a></span>
+				<span><a href="logout" class="text-light">ログアウト</a></span>
 <%			} %>
-		</span>
-		<span><a href="logout" class="text-light">ログアウト</a></span>
 	</div>
 </nav>
 
