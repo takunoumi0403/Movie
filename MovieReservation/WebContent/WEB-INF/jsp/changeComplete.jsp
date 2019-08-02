@@ -8,5 +8,8 @@
 </head>
 <body>
 更新が完了しました。
+
+<a href="myPage">マイページへ</a>
+</form>
 </body>
 </html>
