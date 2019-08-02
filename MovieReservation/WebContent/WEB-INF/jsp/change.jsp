@@ -13,41 +13,41 @@
 </head>
 <body>
 	<h1>メールアドレス/パスワード</h1>
-	<form>
+	<form action="userInfoChange">
 
-	<table>
-		<tr>
-			<td>メールアドレス</td>
-			<td><input type="text" name="address"
-				value="<%= bean.getUserMail() %>"></td>
-		</tr>
-		<tr>
-			<td>パスワード</td>
-			<td><input type="password" name="pass"
-				value="<%=bean.getPass()%>"></td>
-		</tr>
-		<h2>お客様情報</h2>
-		<tr>
-			<td>ユーザー名</td>
-			<td><input type="text" name="uname"
-				value="<%=bean.getUserName()%>"></td>
-		</tr>
-		<tr>
-			<td>電話番号</td>
-			<td><input type="text" name="userphone"
-				value="<%=bean.getUserPhone()%>"></td>
-		</tr>
-		<tr>
-			<td>性別</td>
-			<td><input type="text" name="sex" value="<%=bean.getGenderCode()%>"></td>
-		</tr>
-		<tr>
-			<td>生年月日</td>
-			<td><input type="text" value="<%=bean.getUserBirth()%>"></td>
+		<table>
+			<tr>
+				<td>メールアドレス</td>
+				<td><input type="text" name="address"
+					value="<%=bean.getUserMail()%>"></td>
+			</tr>
+			<tr>
+				<td>パスワード</td>
+				<td><input type="text" name="pass"
+					value="<%=bean.getPass()%>"></td>
+			</tr>
+			<h2>お客様情報</h2>
+			<tr>
+				<td>ユーザー名</td>
+				<td><input type="text" name="uname"
+					value="<%=bean.getUserName()%>"></td>
+			</tr>
+			<tr>
+				<td>電話番号</td>
+				<td><input type="text" name="userphone"
+					value="<%=bean.getUserPhone()%>"></td>
+			</tr>
+			<tr>
+				<td>性別</td>
+				<td><%=bean.getGenderCode()%></td>
+			</tr>
+			<tr>
+				<td>生年月日</td>
+				<td><%=bean.getYear() + "/" + bean.getMonth() + "/" + bean.getDay()%></td>
 
-		</tr>
-	</table>
-	<button type="submit">更新</button>
+			</tr>
+		</table>
+		<button type="submit">更新</button>
 	</form>
 </body>
 </html>

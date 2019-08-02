@@ -14,8 +14,12 @@ public class U07_0_UserInfoServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/change.jsp");
 		dispatcher.forward(request, response);
+
 	}
 
 }
