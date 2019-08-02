@@ -17,5 +17,4 @@ public class M03_MovieRegistrationServlet extends HttpServlet{
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/m03_movieRegistration.jsp");
 		dispatcher.forward(request, response);
 	}
-
 }

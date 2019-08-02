@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,28 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.MovieReservationModel;
-
 @WebServlet("/movieReservation")
 public class U18_MovieReservationServlet extends HttpServlet {
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//どの映画が選ばれたのか判定するために、ShowCodeを受け取る。
-		String showCode = request.getParameter("showCode");
-
-		//インスタンスを生成し、取得した映画情報を元に座席の最大数を取得する
-		MovieReservationModel movieReservationModel = new MovieReservationModel();
-		int maxSeatSpace = movieReservationModel.getMaxSeatSpace(showCode);
-
-		//すでに予約がされている座席を取得する。
-		List<Integer> reservedSeatList = movieReservationModel.getReservedSeat(showCode);
-
-		//リクエストスコープに、最大座席数を設定する。
-		request.setAttribute("maxSeatSpace", maxSeatSpace);
-		request.setAttribute("reservedSeatList", reservedSeatList);
-		request.setAttribute("showCode", showCode);
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/u18_movieReservation.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/top.jsp");
 		dispatcher.forward(request, response);
 	}
+
 }
