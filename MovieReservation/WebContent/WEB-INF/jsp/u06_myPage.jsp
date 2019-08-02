@@ -12,7 +12,7 @@
 
 	<div class="container text-center">
 		<p class="mt-5">
-			<a href="userMyPage" class="btn btn-outline-dark p-3 m-4">会員情報画面へ</a>
+			<a href="UserInfo" class="btn btn-outline-dark p-3 m-4">会員情報画面へ</a>
 			<a href="userReservationList" class="btn btn-outline-dark p-3 m-4">予約映画一覧へ</a>
 		</p>
 	</div>

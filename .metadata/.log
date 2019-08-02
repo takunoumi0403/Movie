@@ -12916,3 +12916,245 @@ Binding(ALT+SHIFT+D R,
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-01 14:41:35.879
 !MESSAGE executing callback sts4.classpath.GbmBtAYg SUCCESS [終了しました]
+
+!ENTRY org.eclipse.jdt.core 4 4 2019-08-02 16:25:59.123
+!MESSAGE Background Indexer Crash Recovery
+!STACK 0
+java.lang.OutOfMemoryError: Java heap space
+	at org.eclipse.jdt.internal.compiler.util.HashtableOfObject.<init>(HashtableOfObject.java:42)
+	at org.eclipse.jdt.internal.core.index.DiskIndex.readCategoryTable(DiskIndex.java:683)
+	at org.eclipse.jdt.internal.core.index.DiskIndex.mergeCategory(DiskIndex.java:486)
+	at org.eclipse.jdt.internal.core.index.DiskIndex.mergeCategories(DiskIndex.java:478)
+	at org.eclipse.jdt.internal.core.index.DiskIndex.mergeWith(DiskIndex.java:580)
+	at org.eclipse.jdt.internal.core.index.Index.save(Index.java:203)
+	at org.eclipse.jdt.internal.core.search.indexing.IndexManager.saveIndex(IndexManager.java:982)
+	at org.eclipse.jdt.internal.core.search.indexing.IndexManager.saveIndexes(IndexManager.java:1024)
+	at org.eclipse.jdt.internal.core.search.indexing.IndexManager.notifyIdle(IndexManager.java:709)
+	at org.eclipse.jdt.internal.core.search.processing.JobManager.run(JobManager.java:384)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:26:55.925
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:26:55.928
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@770fa173[org.springframework.tooling.boot.ls:1.4.0.201902210636(id=1068)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:26:55.932
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:26:55.985
+!MESSAGE Instantiating ReusableClasspathListenerHandler
+
+!ENTRY org.eclipse.jface 2 0 2019-08-02 16:26:56.848
+!MESSAGE キーバインドの競合が発生しました。 通常のアクセラレーター操作を妨げる可能性があります。
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-08-02 16:26:56.848
+!MESSAGE A conflict occurred for ALT+SHIFT+X R:
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.run,サーバーで実行,
+		サーバー上の現在の選択を実行,
+		Category(org.eclipse.debug.ui.category.run,実行/デバッグ,コマンド実行/デバッグのカテゴリー,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@36f35774,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+X R,
+	ParameterizedCommand(Command(org.eclipse.rap.tools.launch.RAPLaunchShortcut.run,RAP アプリケーションの実行,
+		RAP アプリケーションの実行,
+		Category(org.eclipse.debug.ui.category.run,実行/デバッグ,コマンド実行/デバッグのカテゴリー,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4bfb91df,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-08-02 16:26:56.848
+!MESSAGE A conflict occurred for ALT+SHIFT+D R:
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.wst.server.launchShortcut.debug,サーバーでデバッグ,
+		サーバー上の現在の選択をデバッグ,
+		Category(org.eclipse.debug.ui.category.run,実行/デバッグ,コマンド実行/デバッグのカテゴリー,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@598c23ad,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+D R,
+	ParameterizedCommand(Command(org.eclipse.rap.tools.launch.RAPLaunchShortcut.debug,RAP アプリケーションのデバッグ,
+		RAP アプリケーションのデバッグ,
+		Category(org.eclipse.debug.ui.category.run,実行/デバッグ,コマンド実行/デバッグのカテゴリー,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@17088b23,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.735
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.LMgRudJq
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.739
+!MESSAGE subscribing to classpath changes: sts4.classpath.LMgRudJq
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.741
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.745
+!MESSAGE subsribers = [sts4.classpath.LMgRudJq]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.746
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.751
+!MESSAGE project MovieReservation ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.752
+!MESSAGE project Servers ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.753
+!MESSAGE Preparing classpath changed notification MovieReservation
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.753
+!MESSAGE project Servers SKIPPED
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.754
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.754
+!MESSAGE project Test ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.755
+!MESSAGE project diary ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.755
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.756
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.LMgRudJq => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.759
+!MESSAGE classpath=45 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.760
+!MESSAGE executing callback sts4.classpath.LMgRudJq MovieReservation false 45
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.808
+!MESSAGE executing callback sts4.classpath.LMgRudJq SUCCESS [終了しました]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.808
+!MESSAGE Preparing classpath changed notification diary
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.809
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.810
+!MESSAGE classpath=3 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.811
+!MESSAGE executing callback sts4.classpath.LMgRudJq diary false 3
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.819
+!MESSAGE executing callback sts4.classpath.LMgRudJq SUCCESS [終了しました]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.820
+!MESSAGE Preparing classpath changed notification Test
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.821
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.823
+!MESSAGE classpath=43 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.823
+!MESSAGE executing callback sts4.classpath.LMgRudJq Test false 43
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:27:02.830
+!MESSAGE executing callback sts4.classpath.LMgRudJq SUCCESS [終了しました]
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2019-08-02 16:27:06.404
+!MESSAGE ローカルホスト の Tomcat8 (Java8) で必要な幾つかのポート (8080, 8009) がすでに使用中です。サーバーはすでに別のプロセスで稼働中であるか、システム・プロセスがそのポートを使用中である可能性があります。このサーバーを始動するには、他のプロセスを停止するか、ポート番号を変更する必要があります。
+
+!ENTRY org.eclipse.lsp4e 4 0 2019-08-02 16:32:14.709
+!MESSAGE 
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1771)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1915)
+	at org.eclipse.lsp4e.operations.hover.LSBasedHover.getHoverInfo(LSBasedHover.java:105)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaHoverProvider.getHoverInfo2(SpringBootJavaHoverProvider.java:43)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:167)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.416
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.yKwHpUuq
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.418
+!MESSAGE subscribing to classpath changes: sts4.classpath.yKwHpUuq
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.419
+!MESSAGE subsribers = [sts4.classpath.yKwHpUuq, sts4.classpath.LMgRudJq]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.420
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.422
+!MESSAGE project MovieReservation ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.423
+!MESSAGE project Servers ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.423
+!MESSAGE Preparing classpath changed notification MovieReservation
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.424
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.425
+!MESSAGE classpath=45 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.425
+!MESSAGE project Servers SKIPPED
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.427
+!MESSAGE project Test ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.427
+!MESSAGE project diary ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.428
+!MESSAGE executing callback sts4.classpath.yKwHpUuq MovieReservation false 45
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.431
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.433
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.yKwHpUuq => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.479
+!MESSAGE executing callback sts4.classpath.yKwHpUuq SUCCESS [終了しました]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.479
+!MESSAGE Preparing classpath changed notification diary
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.480
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.482
+!MESSAGE classpath=3 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.482
+!MESSAGE executing callback sts4.classpath.yKwHpUuq diary false 3
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.486
+!MESSAGE executing callback sts4.classpath.yKwHpUuq SUCCESS [終了しました]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.486
+!MESSAGE Preparing classpath changed notification Test
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.487
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.488
+!MESSAGE classpath=43 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.489
+!MESSAGE executing callback sts4.classpath.yKwHpUuq Test false 43
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-08-02 16:32:17.494
+!MESSAGE executing callback sts4.classpath.yKwHpUuq SUCCESS [終了しました]
