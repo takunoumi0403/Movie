@@ -53,6 +53,7 @@ public class UserDao extends DaoBase {
 			while(rs.next()) {
 				//ログイン情報を格納する
 				userInfoBeans = new UserInfoBeans();
+				userInfoBeans.setPass(rs.getString("user_pass"));
 				userInfoBeans.setUserCode(rs.getString("user_code"));
 				userInfoBeans.setUserMail(rs.getString("user_mail"));
 				userInfoBeans.setUserName(rs.getString("user_name"));
@@ -181,20 +182,19 @@ public class UserDao extends DaoBase {
 
 
 			//値をセットする
+			stmt = con.prepareStatement("UPDATE user SET user_mail=?,user_pass=?,user_phone=?,user_name=? WHERE user_code = ?");
 			stmt.setString(1, beans.getAddress());
-			stmt.setString(2, beans.getSei() + beans.getMei());
+			stmt.setString(2, beans.getPass());
 			stmt.setString(3, beans.getUserPhone());
-			stmt.setString(4, beans.getSex());
-			stmt.setDate(5,Date.valueOf(beans.getYear() +"-"+ beans.getMonth() + "-"+ beans.getDay())) ;
-			stmt.setString(6, beans.getPass());
-			stmt = con.prepareStatement("UPDATE user SET user_mail=?,user_pass=?,user_phone=?,gender_code=?,user_birth=?,user_name");
+			stmt.setString(4, beans.getUserName());
+			stmt.setString(5, beans.getUserCode());
 			stmt.executeUpdate();
 
 			System.out.println("⭐︎" + beans.getAddress());
-			System.out.println("⭐︎" + beans.getSei()+ beans.getMei());
 			System.out.println("⭐︎" + beans.getUserPhone());
-			System.out.println("⭐︎" + beans.getSex());
-			System.out.println("⭐︎" + beans.getYear());
+			System.out.println("⭐︎" + beans.getUserPass());
+			System.out.println("⭐︎" + beans.getUserPhone());
+
 
 
 			//SQLを確定する

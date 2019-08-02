@@ -60,21 +60,23 @@ public class UserModel {
 		return false;
 	}
 
-	public void update(UserInfoBeans beans) {
+	public boolean update(UserInfoBeans beans) {
 		UserDao dao = new UserDao();
-
+		boolean flg = false;
 		try {
 			//データベース接続
 			dao.connect();
-           dao.updateUser(beans);
+           return flg = dao.updateUser(beans);
+
 
 
 		}catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
 
 	}
-	
+
 
 
 }
