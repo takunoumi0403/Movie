@@ -9,19 +9,19 @@ use MovieReservationSystem;
 
 -- シアターテーブルの作成
 create table theater(
-	`theater_code` INTEGER AUTO_INCREMENT NOT NULL,
+	`theater_code` CHAR(2) NOT NULL,
 	`max_seat_space` INTEGER NOT NULL,
 	PRIMARY KEY(`theater_code`)
 );
 
-INSERT INTO `theater`(`max_seat_space`) VALUES (325);
-INSERT INTO `theater`(`max_seat_space`) VALUES (162);
-INSERT INTO `theater`(`max_seat_space`) VALUES (224);
-INSERT INTO `theater`(`max_seat_space`) VALUES (10);
+INSERT INTO `theater`(`theater_code`,`max_seat_space`) VALUES ('01',325);
+INSERT INTO `theater`(`theater_code`,`max_seat_space`) VALUES ('02',162);
+INSERT INTO `theater`(`theater_code`,`max_seat_space`) VALUES ('03',224);
+INSERT INTO `theater`(`theater_code`,`max_seat_space`) VALUES ('04',10);
 
 -- 性別テーブルの作成
 create table gender(
-	`gender_code` VARCHAR(1) NOT NULL,
+	`gender_code` CHAR(1) NOT NULL,
 	`gender` VARCHAR(32) NOT NULL,
 	PRIMARY KEY(`gender_code`)
 );
@@ -40,14 +40,14 @@ create table user(
 	`gender_code` VARCHAR(4) NOT NULL,
 	`user_birth` DATE NOT NULL,
 	`user_pass` VARCHAR(64) NOT NULL,
-	`delete_flag` bit(1) NOT NULL,
+	`delete_flag` bit NOT NULL default b'0',
 	PRIMARY KEY(`user_code`),
 	FOREIGN KEY `user`(gender_code) REFERENCES `gender`(gender_code)
 );
 
-INSERT INTO `user`(`user_mail`,`user_name`,`user_phone`,`gender_code`,`user_birth`,`user_pass`,`delete_flag`) VALUES('1701163@st.asojuku.ac.jp','吉野拓海','090-9405-0043','M','1998/04/03','aiueo',0);
-INSERT INTO  user(`user_mail`,`user_name`,`user_phone`,`gender_code`,`user_birth`,`user_pass`,`delete_flag`) values("id","name","phone","M","1990-01-01","pass",0);
-INSERT INTO  user(`user_mail`,`user_name`,`user_phone`,`gender_code`,`user_birth`,`user_pass`,`delete_flag`) values("id1","name","phone","M","1990-01-01","pass",1);
+INSERT INTO `user`(`user_mail`,`user_name`,`user_phone`,`gender_code`,`user_birth`,`user_pass`) VALUES('1701163@st.asojuku.ac.jp','吉野拓海','090-9405-0043','M','1998/04/03','aiueo');
+INSERT INTO  user(`user_mail`,`user_name`,`user_phone`,`gender_code`,`user_birth`,`user_pass`) values("id","name","phone","M","1990-01-01","pass");
+INSERT INTO  user(`user_mail`,`user_name`,`user_phone`,`gender_code`,`user_birth`,`user_pass`) values("id1","name","phone","M","1990-01-01","pass");
 
 -- 料金テーブルの作成
 create table fee(
@@ -89,24 +89,24 @@ create table shows(
 	`show_code` INTEGER AUTO_INCREMENT NOT NULL,
 	`movie_code` INTEGER NOT NULL,
 	`show_date` DATETIME NOT NULL,
-	`theater_code` INTEGER NOT NULL,
+	`theater_code` CHAR(2) NOT NULL,
 	`seat_space` INTEGER NOT NULL,
 	PRIMARY KEY(`show_code`),
 	FOREIGN KEY (`movie_code`) REFERENCES `movie`(`movie_code`),
 	FOREIGN KEY (`theater_code`) REFERENCES `theater`(`theater_code`)
 );
 
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(1,current_date,1,325);
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(2,current_date,2,162);
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(3,current_date,3,224);
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(3,date_add(current_date,interval 1 day),4,10);
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(4,date_add(current_date,interval 1 day),1,325);
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(5,date_add(current_date,interval 1 day),2,162);
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(6,date_add(current_date,interval 2 day),1,325);
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(7,date_add(current_date,interval 2 day),2,162);
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(1,date_add(current_date,interval 2 day),2,162);
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(2,current_date,3,224);
-INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(3,current_date,3,224);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(1,current_date,'01',325);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(2,current_date,'02',162);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(3,current_date,'03',224);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(3,date_add(current_date,interval 1 day),'04',10);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(4,date_add(current_date,interval 1 day),'01',325);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(5,date_add(current_date,interval 1 day),'02',162);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(6,date_add(current_date,interval 2 day),'03',325);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(7,date_add(current_date,interval 2 day),'04',162);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(1,date_add(current_date,interval 2 day),'01',162);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(2,current_date,'02',224);
+INSERT INTO `shows`(`movie_code`,`show_date`,`theater_code`,`seat_space`) VALUES(3,current_date,'03',224);
 
 
 -- 予約テーブルの作成
@@ -154,26 +154,28 @@ create table reservation_details(
 
 -- 管理者テーブルの作成
 create table adm(
-	`admin_id` INTEGER AUTO_INCREMENT NOT NULL,
-	`admin_name` VARCHAR(128) NOT NULL,
-	`admin_password` VARCHAR(32) NOT NULL,
-	PRIMARY KEY(`admin_id`)
+	`adm_id` INTEGER AUTO_INCREMENT NOT NULL,
+	`adm_name` VARCHAR(128) NOT NULL,
+	`adm_password` VARCHAR(32) NOT NULL,
+	PRIMARY KEY(`adm_id`)
 );
 
-INSERT INTO `adm`(`admin_name`,`admin_password`) VALUES("admin","aiueo");
+INSERT INTO `adm`(`adm_name`,`adm_password`) VALUES("admin","aiueo");
 
 
 -- セレクト文
 select * from gender;
+
 select * from user;
+
 select * from fee;
+
 select * from movie;
+
 select * from shows;
+
 select * from reservation;
+
 select * from reservation_details;
-select * from admin;
 
-SELECT DATE_FORMAT(show_date,'%Y/%m/%d') as YYMMDD ,DATE_FORMAT(show_date,' %H:%i:%s') as HHMMSS
-FROM shows ORDER BY YYMMDD , HHMMSS;
-
-SELECT * , DATE_FORMAT(user_birth,'%Y') as Y , DATE_FORMAT(user_birth,'%m') as M , DATE_FORMAT(user_birth,'%d') as D FROM user WHERE user_mail = ? AND user_pass = ? AND delete_flag = 0;
+select * from adm;
