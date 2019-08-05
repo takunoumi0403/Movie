@@ -8,7 +8,11 @@
 		maxIdle="20"
 		maxWaitMillis="-1"
 		username="root"
+<<<<<<< Updated upstream
 		 password="cjf133607138"
+=======
+		 password=""
+>>>>>>> Stashed changes
 		 driverClassName="com.mysql.jdbc.Driver"
 		 url="jdbc:mysql://localhost:3306/moviereservationsystem?serverTimezone=JST"
 		 validationQuery="SELECT 0"

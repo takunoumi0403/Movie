@@ -8,15 +8,17 @@
 </head>
 
 <body>
+<jsp:include page="./header/userHeader.jsp" />
 	<%
 		String erro = (String) request.getAttribute("mess");
 	%>
 	<%
 		String bean = (String) request.getAttribute("UserInfoBeans");
 	%>
-	<%=erro%>
+	<%if(erro!=null){ %>
+	<%=erro%> <%} %>
 	<form action="signUpCheck" method="POST">
-		<table>
+		<table class="table table-bordered">
 			<tr>
 				<td>メールアドレス</td>
 				<td><input type="text" name="address"></td>
@@ -228,9 +230,10 @@
 				</td>
 		</table>
 		<p>
-			<input type="button" value="戻る" onclick="history.back()"> <input
-				type="submit" name="submit" value="入力内容を確認する">
-		</p>
+		<div class="text-center">
+			<input type="button" value="戻る" onclick="history.back()" class=" btn btn-outline-secondary pt-3 pb-3 pl-5 pr-5"> <input
+				type="submit" name="submit" class="btn btn-outline-secondary pt-3 pb-3 pl-5 pr-5" value="入力内容を確認する"></div>
+
 	</form>
 
 
