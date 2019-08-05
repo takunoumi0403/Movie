@@ -12,10 +12,11 @@
 %>
 </head>
 <body>
-	<h1>メールアドレス/パスワード</h1>
+<jsp:include page="./header/userHeader.jsp" />
+	<h1>会員情報変更</h1>
 	<form action="userInfoChange">
 
-		<table>
+		<table class="table table-bordered">
 			<tr>
 				<td>メールアドレス</td>
 				<td><input type="text" name="address"
@@ -47,7 +48,10 @@
 
 			</tr>
 		</table>
-		<button type="submit">更新</button>
+		<div class="text-center">
+			<button type="submit" class="btn btn-outline-secondary pt-3 pb-3 pl-5 pr-5" >更新</button>
+		</div>
 	</form>
 </body>
+
 </html>
