@@ -8270,3 +8270,8 @@ Binding(COMMAND+SHIFT+-,
 
 !ENTRY org.eclipse.jface.text 2 0 2019-08-05 09:54:42.029
 !MESSAGE 重複テンプレート ID: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.core.resources 2 2 2019-08-05 09:59:52.922
+!MESSAGE 保存操作の警告。
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2019-08-05 09:59:52.922
+!MESSAGE 'MovieReservation' のプロジェクト記述ファイル (.project) がありませんでした。 このファイルには、プロジェクトに関する重要な情報が含まれています。 新しいプロジェクト記述ファイルが作成されましたが、プロジェクトに関する情報の一部が破損している可能性があります。
