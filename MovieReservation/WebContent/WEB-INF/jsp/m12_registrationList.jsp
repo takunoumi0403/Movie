@@ -18,7 +18,7 @@
       <input type="submit" value="検索">
     </form>
   </article>
-  
+
   <p>
     <% if( "" != null){ %>
       <font color="red">予約番号または予約者名に一致する映画予約はありません</font>
@@ -26,7 +26,7 @@
 	  予約番号または予約者名に一致する映画予約が見つかりました
 	<% } %>
   </p>
-  
+
   <table>
     <tr><th>予約番号</th><th>名前</th><th>映画名</th><th>シアター</th><th>上映開始時刻</th><th>券種</th></tr>
     <tr><td><%= %></td><td><%= %></td><td><%= %></td><td><%= %></td><td><%= %></td><td><%= %></td></tr>

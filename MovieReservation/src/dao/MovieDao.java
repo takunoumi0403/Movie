@@ -19,8 +19,8 @@ public class MovieDao extends DaoBase{
 	public int masterMovieInsert(MovieRegistBeans MRBeans,List<MovieTheaterRegistBeans> MTRBeansList) throws SQLException {
 		int movieCode=-1;
 		int count=0;
-		
-		
+
+
 		if(con==null) {
 			//接続していない場合は何もしない
 			return -1;
@@ -29,8 +29,8 @@ public class MovieDao extends DaoBase{
 		ResultSet rs = null;
 		try {
 			///SELECT文の発行
-			stmt = con.prepareStatement("INSERT INTO movie"  
-					+"(movie_name,movie_time,movie_start,movie_finish,movie_adress,movie_thumbnail,movie_description)"  
+			stmt = con.prepareStatement("INSERT INTO movie"
+					+"(movie_name,movie_time,movie_start,movie_finish,movie_adress,movie_thumbnail,movie_description)"
 					+"VALUES(?,?,?,?,?,?,?)");
 			stmt.setString(1,MRBeans.getMovieName());
 			stmt.setInt(2,MRBeans.getMovieTime());
@@ -74,7 +74,7 @@ public class MovieDao extends DaoBase{
 		return movieCode;
 	}
 	public MovieRegistBeans masterMovieGetInfo(int movie_code) throws SQLException {
-		
+
 		PreparedStatement stmt=null;
 		ResultSet rs=null;
 		MovieRegistBeans MRBeans=new MovieRegistBeans();
@@ -98,16 +98,16 @@ public class MovieDao extends DaoBase{
 		return MRBeans;
 	}
 	public void masterMovieUpdate(MovieRegistBeans MRBeans,int MOVIE_CODE) throws SQLException {
-		
+
 		if(con==null) {
 			//接続していない場合は何もしない
 			return ;
 		}
 		PreparedStatement stmt=null;
-		
+
 		try {
 			///SELECT文の発行
-			
+
 			stmt = con.prepareStatement("UPDATE movie SET movie_name=?,movie_adress=?,movie_description=? WHERE movie_code=?");
 			stmt.setString(1,MRBeans.getMovieName());
 			stmt.setString(2,MRBeans.getMovieAddress());
@@ -127,7 +127,7 @@ public class MovieDao extends DaoBase{
 		}
 		String Filename="";
 		PreparedStatement stmt=null;
-		ResultSet rs=null; 
+		ResultSet rs=null;
 		try {
 			stmt= con.prepareStatement("SELECT movie_thumbnail FROM movie WHERE movie_code=?");
 			stmt.setInt(1,MOVIE_CODE);
@@ -138,13 +138,13 @@ public class MovieDao extends DaoBase{
 			stmt = con.prepareStatement("DELETE FROM movie WHERE movie_code=? ");
 			stmt.setInt(1,MOVIE_CODE);
 			stmt.executeUpdate();
-			
-			
+
+
 		}catch(SQLException e) {
 			e.printStackTrace();
 			throw e;
 		}
 		return Filename;
 	}
-	
+
 }

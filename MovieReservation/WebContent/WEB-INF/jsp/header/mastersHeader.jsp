@@ -16,7 +16,7 @@ UserInfoBeans loginInfo=(UserInfoBeans)session.getAttribute("loginInfo");%>
 	<ul>
 		<li><a href="masters_top"><img src="img/logo.png" alt="サイトロゴ" width="58" height="38"></a></li>
 		<li>～映画予約管理システム～</li>
-		<li>株式会社 West Field ようこそ<%=loginInfo.getName() %>さん</li> 
+		<li>株式会社 West Field ようこそ<%=loginInfo.getName() %>さん</li>
 
 		<li><a href="logout">ログアウト</a></li>
 	</ul>

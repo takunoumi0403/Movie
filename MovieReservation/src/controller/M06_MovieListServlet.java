@@ -26,12 +26,12 @@ public class M06_MovieListServlet extends HttpServlet {
 		List<MovieListBeans> movieList = new ArrayList<MovieListBeans>();
 		movieList=listModel.getMovieList();
 		movieList=listModel.statusSet(movieList);
-		
+
 		HttpSession session = request.getSession();
-		
+
 		session.setAttribute("movieList",movieList);
 		request.setAttribute("ReleaseFlag",0);
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/m06_movieList.jsp");
 		dispatcher.forward(request, response);
 

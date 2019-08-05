@@ -4,7 +4,7 @@ import dao.MovieDao;
 import dao.ShowsDao;
 
 public class MasterMovieDeleteModel {
-	
+
 	public String delete(int MOVIE_CODE) {
 		String Filename="";
 		ShowsDao showsDao=new ShowsDao();
@@ -15,13 +15,13 @@ public class MasterMovieDeleteModel {
 			MovieDao movieDao=new MovieDao(showsDao.getConnection());
 			Filename=movieDao.masterMovieDelete(MOVIE_CODE);
 			showsDao.commit();
-			
+
 		}catch(Exception e) {
 			e.printStackTrace();
 			showsDao.rollback();
-			
+
 		}
-		
+
 		return Filename;
 	}
 }

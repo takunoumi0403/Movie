@@ -4,43 +4,43 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-public abstract class DaoBase {
-	protected Connection con=null;
-	/**
-	 * DBの接続を行う
-	 * @throw Exception 接続失敗
-	 */
+public class DaoBase {
+	protected Connection con = null;
+
 	public DaoBase() {
 	}
 	public DaoBase(Connection con) {
 		this.con=con;
 	}
 	public void connect() throws Exception{
-		if(con!=null) {
-			//既に接続済みの場合は何もしない
+		if(con != null) {
+			//すでに接続済みの場合は何もしない
 			return;
 		}
-		InitialContext context=null;
+
+		//コネクションプールから値を受け取るためのインスタンス
+		InitialContext context = new InitialContext();;
+
 		try {
-			//DBの接続
-			String resourceName="jdbc/MySQL";
-			String jndi="java:comp/env/"+resourceName;
-			context=new InitialContext();
-			DataSource dataSource=(DataSource)context.lookup(jndi);
-			con=dataSource.getConnection();
-		}catch(NamingException e) {
-			//エラーが発生した場合にコンソールにログを出力する
-			e.printStackTrace();
-			throw e;
-		}catch(SQLException e) {
-			//エラーが発生した場合にコンソールにログを出力する
-			e.printStackTrace();
+			//データベースの種類を指定する
+			String resourceName = "jdbc/MySQL";
+
+			//jndi(Java Naming and Directory Interface)を指定
+			String jndi = "java:comp/env/" + resourceName;
+
+			//データを格納するためのインスタンスを生成する
+			DataSource dataSource = (DataSource)context.lookup(jndi);
+
+			//接続する
+			con = dataSource.getConnection();
+		}catch(Exception e) {
 			throw e;
 		}
 	}
+
+
 	/**
 	 * 接続のクローズ処理
 	 */
@@ -87,6 +87,5 @@ public abstract class DaoBase {
 			con.setAutoCommit(false);
 		}
 	}
+
 }
-
-

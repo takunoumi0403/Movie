@@ -12,17 +12,17 @@ import beans.ReservationListBeans;
 public class MasterReservationDao extends DaoBase {
 	/**
 	 * 映画一覧
-	 * @return 
-	 * @throws SQLException 
+	 * @return
+	 * @throws SQLException
 	 */
 	public List<MovieListBeans> getMovieList() throws SQLException {
 		List<MovieListBeans> movieList = new ArrayList<MovieListBeans>();
-		
+
 		if(con == null) {
 			//接続していない場合は何もしない
 			return movieList;
 		}
-		
+
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 
@@ -63,19 +63,20 @@ public class MasterReservationDao extends DaoBase {
 		}
 		return movieList;
 	}
-	
-	
+
+
+
 	/**
 	 * 予約のリストを取得する
 	 */
-	public List<ReservationListBeans> getList(){
+	public List<ReservationListBeans> getList(int number, String name){
 		List<ReservationListBeans> list = new ArrayList<ReservationListBeans>();
 
 		if(con == null) {
 			//接続していない場合は何もしない
 			return list;
 		}
-		
+
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 
@@ -83,22 +84,28 @@ public class MasterReservationDao extends DaoBase {
 			///////////////////////////////////
 			//SELECT文の発行
 			stmt = con.prepareStatement(
-					"SELECT reservation.reservation_code, user.user_name, movie.movie_name, show.theater_code, show.show_date, fee.fee_type"
-					+ "FROM user INNER JOIN reservation ON user.user_code=reservation.user_code INNER JOIN show ON reservation.show_code=show.show_code INNER JOIN movie ON show.movie_code=movie.movie_code INNER JOIN "
-					+ "reservation_details ON movie.reservation_code=reservation_details.reservation_code INNER JOIN fee ON reservation_details.fee_code=fee.fee_code"
-					+ "WHERE ");
-
+					"SELECT reservation.reservation_code, reservation_details.detail_number, user.user_name, movie.movie_name, shows.theater_code, shows.show_date, fee.fee_type "
+					+ "FROM user INNER JOIN reservation ON user.user_code=reservation.user_code "
+					+ "INNER JOIN shows ON reservation.show_code=shows.show_code "
+					+ "INNER JOIN movie ON shows.movie_code=movie.movie_code "
+					+ "INNER JOIN reservation_details ON reservation.reservation_code=reservation_details.reservation_code "
+					+ "INNER JOIN fee ON reservation_details.fee_code=fee.fee_code "
+					+ "WHERE reservation.reservation_code=? AND user.user_name=?");
+			stmt.setInt(1, number);
+			stmt.setString(2, name);
 			rs = stmt.executeQuery();
 
+			//DBから値を取得
 			while(rs.next()){
 				ReservationListBeans beans = new ReservationListBeans();
 
-				beans.setReservation_code(rs.getString("reservation_code"));
-				beans.setName(rs.getString("name"));
-				beans.setMovieName(rs.getString("movieName"));
-				beans.setTheater(rs.getString("theater"));
-				beans.setShowDate(rs.getString("showDate"));
-				beans.setFeeType(rs.getString("feeType"));
+				beans.setReservation_code(rs.getInt("reservation_code"));
+				beans.setDetail_number(rs.getInt("detail_number"));
+				beans.setName(rs.getString("user_name"));
+				beans.setMovieName(rs.getString("movie_name"));
+				beans.setTheater(rs.getString("theater_code"));
+				beans.setShowDate(rs.getDate("show_date"));
+				beans.setFeeType(rs.getString("fee_type"));
 
 				list.add(beans);
 			}

@@ -7,13 +7,11 @@
 <title>管理者のトップページ</title>
 </head>
 <body>
-  <div>
-    <ul>
-	    <li>操作を選んでください</li>
-	    <li><input type="button" value="利用者予約確認"></li>
-	    <li><li><input type="button" value="映画登録"></li>
-	    <li><li><input type="button" value="映画一覧更新削除"></li>
-    </ul>
-  </div>
+  <article>
+    <p>操作を選んでください</p>
+    <div><button type="button" onclick="location.href='m12_registrationList'">利用者予約確認</button></div>
+    <div><button type="button" onclick="location.href=''">映画登録</button></div>
+    <div><button type="button" onclick="location.href='m06_movieList'">映画一覧更新削除</button></div>
+  </article>
 </body>
 </html>

@@ -31,10 +31,11 @@ public class M02_LoginServlet extends HttpServlet {
 		////////////////////////////////////////////
 		//session
 		HttpSession session = request.getSession();
-		
+
 		if( loginInfo != null ){
 		/////////////////////////////////////////////
 		////ログイン結果をセッションに保存する
+			session.setAttribute("userInfoBeans",loginInfo);
 			session.setAttribute("loginInfo",loginInfo);
 			response.sendRedirect("masters_top");
 		}else{
