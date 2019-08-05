@@ -12,12 +12,12 @@
 <body id="registration_resultList">
 <jsp:include page="./header/mastersHeader.jsp"/>
 <%
-	List<ReservationListBeans> list = (List<ReservationListBeans>)request.getAttribute("reservationList");
+	List<ReservationListBeans> list = (List<ReservationListBeans>)session.getAttribute("reservationList");
 %>
 
   <p>下の検索欄に予約番号と予約者の名前を入力してください</p>
 
-  <article>
+  <article class="RegistrationList">
     <form action="registration_resultList" method="GET" id="search_form">
       <p>予約番号検索</p>
       <input type="text" id="search_word" name="numbersearch" value="">
@@ -66,11 +66,28 @@
 
 <div id="jsChangeContents">
 
-  <% for(ReservationListBeans reservation : list){ %>
+  
   <table>
-    <tr><th>予約番号</th><th>予約詳細番号</th><th>名前</th><th>映画名</th><th>シアター</th><th>上映開始時刻</th><th>券種</th></tr>
-    <tr><td><%=reservation.getReservation_code() %></td><td><%=reservation.getDetail_number() %></td><td><%=reservation.getName() %></td><td><%=reservation.getMovieName() %></td>
-    <td><%=reservation.getTheater() %></td><td><%=reservation.getShowDate() %></td><td><%=reservation.getFeeType() %></td></tr>
+    <tr>
+    	<th>予約番号</th>
+    	<th>予約詳細番号</th>
+    	<th>名前</th>
+    	<th>映画名</th>
+    	<th>シアター</th>
+    	<th>上映開始時刻</th>
+    	<th>券種</th>
+    </tr>
+    
+<% for(ReservationListBeans reservation : list){ %>
+    <tr>
+    	<td><%=reservation.getReservation_code() %></td>
+    	<td><%=reservation.getDetail_number() %></td>
+    	<td><%=reservation.getName() %></td>
+    	<td><%=reservation.getMovieName() %></td>
+    	<td><%=reservation.getTheater() %></td>
+    	<td><%=reservation.getShowDate() %></td>
+    	<td><%=reservation.getFeeType() %></td>
+    </tr>
   </table>
 <% } %>
 </div>
