@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <servers>
-  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/ローカルホスト の Tomcat8 (Java8)-config" deployDir="wtpwebapps" hostname="localhost" id="ローカルホスト の Tomcat8 (Java8)" name="ローカルホスト の Tomcat8 (Java8)" runtime-id="Tomcat8 (Java8)" server-type="org.eclipse.jst.server.tomcat.85" server-type-id="org.eclipse.jst.server.tomcat.85" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="7">
-    <list key="modules" value0="Test::org.eclipse.jst.jee.server:Test::jst.web::3.1" value1="MovieReservationA::org.eclipse.jst.jee.server:MovieReservationA::jst.web::3.1"/>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/ローカルホスト の Tomcat8 (Java8)-config" deployDir="wtpwebapps" hostname="localhost" id="ローカルホスト の Tomcat8 (Java8)" name="ローカルホスト の Tomcat8 (Java8)" runtime-id="Tomcat8 (Java8)" server-type="org.eclipse.jst.server.tomcat.85" server-type-id="org.eclipse.jst.server.tomcat.85" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="8">
+    <list key="modules" value0="Test::org.eclipse.jst.jee.server:Test::jst.web::3.1" value1="MovieReservation::org.eclipse.jst.jee.server:MovieReservation::jst.web::3.1"/>
   </server>
 </servers>
