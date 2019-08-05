@@ -21,6 +21,26 @@ public class UserInfoBeans implements Serializable {
 	private String month;
 	private String day;
 	private String resultsex;
+	private String name;
+	private int loginId;
+
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getLoginId() {
+		return loginId;
+	}
+
+	public void setLoginId(int loginId) {
+		this.loginId = loginId;
+	}
+
 	public String getUserCode() {
 		return userCode;
 	}

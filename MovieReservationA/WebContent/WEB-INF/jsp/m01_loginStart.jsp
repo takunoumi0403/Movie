@@ -18,9 +18,9 @@
 				<p>IDあるいはパスワードが間違っています</p>
 <%			} %>
 
-	<form action="mauth" method="post">
+	<form action="auth" method="post">
 		<p><input type="text" name="id" placeholder="ID" size="40"></p>
-		<p><input type="text" name="pass" placeholder="パスワード" size="40"></p>
+		<p><input type="password" name="pass" placeholder="パスワード" size="40"></p>
 		<p><input type="submit" value="ログイン"></p>
 	</form>
 

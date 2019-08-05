@@ -42,6 +42,9 @@
 					<tr>
 						<td colspan="2" align="center"><a href="signUp" class="btn btn-secondary w-50">会員登録</a></td>
 					</tr>
+					<tr>
+						<td colspan="2" align="center"><a href="mastersLogin" class="w-25">管理者ログイン</a></td>
+					</tr>
 				</table>
 			</form>
 		</div>

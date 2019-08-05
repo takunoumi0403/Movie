@@ -1,27 +1,28 @@
 package beans;
 
-import java.sql.Timestamp;
-
-import javax.servlet.http.Part;
+import java.util.Date;
 
 public class MovieRegistBeans {
-	private Timestamp insertDate;
+	private String[] theaterIds;
 	private String movieName;
 	private String movieDescription;
-	//日時はdatetime型
-	private String movieTime;
-	private String movieStartDay;
-	private String movieEndDay;
-	private String theaterNumber;
-	private String movieStartTime;
+	private int movieTime;
+	private Date startDate;
+	private Date endDate;
+	private int[] theaterNumbers;
 	private String movieAddress;
-	//サムネイルPart型 サーバの指定のファイルパス？
-	private Part thubnail;
-	public Timestamp getInsertDate() {
-		return insertDate;
+	private String thumbnail;
+	public String getThumbnail() {
+		return thumbnail;
 	}
-	public void setInsertDate(Timestamp insertDate) {
-		this.insertDate = insertDate;
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
+	}
+	public String[] getTheaterIds() {
+		return theaterIds;
+	}
+	public void setTheaterIds(String[] theaterIds) {
+		this.theaterIds = theaterIds;
 	}
 	public String getMovieName() {
 		return movieName;
@@ -35,48 +36,36 @@ public class MovieRegistBeans {
 	public void setMovieDescription(String movieDescription) {
 		this.movieDescription = movieDescription;
 	}
-	public String getMovieTime() {
+	public int getMovieTime() {
 		return movieTime;
 	}
-	public void setMovieTime(String movieTime) {
+	public void setMovieTime(int movieTime) {
 		this.movieTime = movieTime;
 	}
-	public String getMovieStartDay() {
-		return movieStartDay;
+	public Date getStartDate() {
+		return startDate;
 	}
-	public void setMovieStartDay(String movieStartDay) {
-		this.movieStartDay = movieStartDay;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
-	public String getMovieEndDay() {
-		return movieEndDay;
+	public Date getEndDate() {
+		return endDate;
 	}
-	public void setMovieEndDay(String movieEndDay) {
-		this.movieEndDay = movieEndDay;
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
-	public String getTheaterNumber() {
-		return theaterNumber;
+	public int[] getTheaterNumbers() {
+		return theaterNumbers;
 	}
-	public void setTheaterNumber(String theaterNumber) {
-		this.theaterNumber = theaterNumber;
+	public void setTheaterNumbers(int[] theaterNumbers) {
+		this.theaterNumbers = theaterNumbers;
 	}
-	public String getMovieStartTime() {
-		return movieStartTime;
-	}
-	public void setMovieStartTime(String movieStartTime) {
-		this.movieStartTime = movieStartTime;
-	}
+	
 	public String getMovieAddress() {
 		return movieAddress;
 	}
 	public void setMovieAddress(String movieAddress) {
 		this.movieAddress = movieAddress;
 	}
-	public Part getThubnail() {
-		return thubnail;
-	}
-	public void setThubnail(Part thubnail) {
-		this.thubnail = thubnail;
-	}
-	
 	
 }

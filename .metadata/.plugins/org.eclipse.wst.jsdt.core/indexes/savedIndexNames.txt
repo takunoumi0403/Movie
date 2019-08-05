@@ -1,13 +1,5 @@
 INDEX VERSION 1.4+/Users/yoshinotakumi/Desktop/git/Movie/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
 274795711.index
-2677880963.index
 2331903514.index
-3608769925.index
-1558034807.index
-333354257.index
-2677880963.index
-1057345152.index
-1532680215.index
-3775048608.index
 2493875836.index
-1558034807.index
+3775048608.index

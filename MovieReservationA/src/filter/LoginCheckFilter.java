@@ -18,8 +18,6 @@ import beans.UserInfoBeans;
 
 @WebFilter("/*")
 public class LoginCheckFilter implements Filter {
-
-
 	@Override
 	public void destroy() {
 		//無処理
@@ -41,6 +39,8 @@ public class LoginCheckFilter implements Filter {
 				"/uauth".equals(servletPath) != true &&
 				"/signUp".equals(servletPath) != true &&
 				"/top".equals(servletPath) != true &&
+				"/mastersLogin".equals(servletPath) != true &&
+				"/auth".equals(servletPath) != true &&
 				"/movieList".equals(servletPath) != true){
 			///////////////////////////////
 			//ログインチェックを行う（セッションからログイン情報を取得してnullでなければOK)

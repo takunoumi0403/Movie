@@ -13,7 +13,7 @@ public class HtmlUtil {
 		text=text.replaceAll("\r\n", "<BR>");
 		text=text.replaceAll("\t", "&nbsp&nbsp&nbsp&nbsp");
 		text=text.replaceAll(" ", "&nbsp");
-		text=text.replaceAll("  ", "&nbsp");
+		text=text.replaceAll(" ", "&nbsp");
 		return text;
 	}
 }

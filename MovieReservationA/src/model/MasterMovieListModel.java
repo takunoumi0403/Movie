@@ -11,17 +11,17 @@ import dao.MasterReservationDao;
 public class MasterMovieListModel {
 	/**
 	 * 映画一覧
-	 * @return 
+	 * @return
 	 */
 	public List<MovieListBeans> getMovieList() {
 		List<MovieListBeans> movieList = new ArrayList<MovieListBeans>();
-		
+
 		MasterReservationDao mResercationDao = new MasterReservationDao();
 		try{
 			///////////////////////////////////
 			//DBの接続
 			mResercationDao.connect();
-			
+
 			//////////////////////////////////
 			//映画情報の取得
 			movieList = mResercationDao.getMovieList();
@@ -39,7 +39,7 @@ public class MasterMovieListModel {
 		return movieList;
 	}
 	/**
-	 * 
+	 *
 	 */
 	public List<MovieListBeans> statusSet(List<MovieListBeans> movieList){
 		Date date = new Date();
@@ -53,17 +53,17 @@ public class MasterMovieListModel {
 			}else {
 				movieList.get(i).setShowStatus("エラー");
 			}
-			
+
 		}
 		return movieList;
-		
+
 	}
-	
+
 	/**
 	 * 名前検索 表示フラグ設定
 	 */
 	public List<MovieListBeans> searchList(String keyword,int Release,List<MovieListBeans> movieList){
-		
+
 		for(int i=0;i<movieList.size();i++) {
 			//全表示
 			if(Release==0) {
@@ -72,7 +72,7 @@ public class MasterMovieListModel {
 				}else {
 					movieList.get(i).setShowFlag(false);
 				}
-			//公開前	
+			//公開前
 			}else if(Release==1) {
 				if("公開前".equals(movieList.get(i).getShowStatus())) {
 					if("".equals(keyword)||(movieList.get(i).getMovieName().contains(keyword))) {
@@ -80,7 +80,7 @@ public class MasterMovieListModel {
 					}else {
 						movieList.get(i).setShowFlag(false);
 					}
-				
+
 				}else {
 					movieList.get(i).setShowFlag(false);
 				}
@@ -92,7 +92,7 @@ public class MasterMovieListModel {
 					}else {
 						movieList.get(i).setShowFlag(false);
 					}
-				
+
 				}else {
 					movieList.get(i).setShowFlag(false);
 				}
@@ -104,25 +104,26 @@ public class MasterMovieListModel {
 					}else {
 						movieList.get(i).setShowFlag(false);
 					}
-				
+
 				}else {
 					movieList.get(i).setShowFlag(false);
 				}
 			}else {
 				movieList.get(i).setShowFlag(false);
 			}
-			
-			
+
+
 		}
 		return movieList;
 	}
 
+
 	/**
 	 * 予約一覧
 	 */
-	public List<ReservationListBeans> getList(){
+	public List<ReservationListBeans> getList(int number, String name){
 		List<ReservationListBeans> reservationList = new ArrayList<ReservationListBeans>();
-		
+
 		MasterReservationDao mReservationDao = new MasterReservationDao();
 		try{
 			///////////////////////////////////
@@ -131,7 +132,7 @@ public class MasterMovieListModel {
 
 			///////////////////////////////////
 			//予約情報の取得
-			reservationList = mReservationDao.getList();
+			reservationList = mReservationDao.getList(number,name);
 
 		}catch(Exception e) {
 			//エラー発生した場合にコンソールにログを出力する
@@ -143,8 +144,9 @@ public class MasterMovieListModel {
 				mReservationDao.close();
 			}
 		}
-		
+
 		return reservationList;
 	}
+
 
 }
