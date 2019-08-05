@@ -8565,3 +8565,13 @@ java.io.FileNotFoundException: /Users/yoshinotakumi/Desktop/git/Movie/MovieReser
 	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:350)
 	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:313)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.updatechecker 4 0 2019-08-05 10:49:58.690
+!MESSAGE Exception in update check thread
+!STACK 0
+java.lang.IllegalArgumentException: timeout value is negative
+	at java.lang.Thread.sleep(Native Method)
+	at org.eclipse.equinox.internal.p2.updatechecker.UpdateChecker$UpdateCheckThread.run(UpdateChecker.java:90)
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2019-08-05 11:02:57.274
+!MESSAGE ローカルホスト の Tomcat8 (Java8) で必要な幾つかのポート (8080, 8009) がすでに使用中です。サーバーはすでに別のプロセスで稼働中であるか、システム・プロセスがそのポートを使用中である可能性があります。このサーバーを始動するには、他のプロセスを停止するか、ポート番号を変更する必要があります。
