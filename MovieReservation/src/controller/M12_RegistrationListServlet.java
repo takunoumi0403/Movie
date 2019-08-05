@@ -14,7 +14,7 @@ public class M12_RegistrationListServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/registration_list.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/m12_registration_list.jsp");
 		dispatcher.forward(request, response);
 	}
 

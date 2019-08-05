@@ -8,17 +8,25 @@
 <link rel="stylesheet" href="css/mastersStyle.css">
 </head>
 <body>
+<%
+	String error = (String)request.getAttribute("error");
+%>
 <jsp:include page="./header/mastersHeader.jsp"/>
 
   <p>下の検索欄に予約番号と予約者の名前を入力してください</p>
 
-  <article>
+  <article class="mRegistrationList">
     <form action="registration_resultList" method="GET" id="search_form">
-      <p>予約番号検索</p>
-      <input type="text" id="search_word" name="numbersearch" value="">
-      <p>予約者名検索</p>
-      <input type="text" id="search_word" name="namesearch" value="">
-      <input type="submit" value="検索">
+	    <table style="border: 3px; background-color:#80D8FF;">
+	      <tr><th>予約番号検索</th></tr>
+	      <tr><td><input type="text" id="search_word" name="numbersearch" value=""></td></tr>
+	      <tr><th>予約者名検索</th></tr>
+	      <tr><td><input type="text" id="search_word" name="namesearch" value=""></td></tr>
+	      <tr><td><input type="submit" value="検索"></td></tr>
+	    </table>
+	    <% if(false){ %>
+	    <p>予約番号と予約者名に一致する映画予約はありません</p>
+	    <% } %>
 
 <!-- jquery読み込み -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>

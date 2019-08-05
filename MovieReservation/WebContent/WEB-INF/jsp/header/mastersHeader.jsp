@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/style.css">
 <%
 UserInfoBeans loginInfo=(UserInfoBeans)session.getAttribute("loginInfo");%>
-<div>
+<div class="mheader">
 	<ul>
 		<li><a href="masters_top"><img src="img/logo.png" alt="サイトロゴ" width="58" height="38"></a></li>
 		<li>～映画予約管理システム～</li>
